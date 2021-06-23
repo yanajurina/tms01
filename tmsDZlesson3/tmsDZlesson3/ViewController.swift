@@ -57,38 +57,32 @@ class ViewController: UIViewController {
         
         if Int(str1) != nil {
             sum += Int(str1)!
-        } else {
-            sum += 0
         }
         if let str2 = Int(str2) {
             sum  += str2
-        }else {
-            sum += 0
         }
         if let str3 = Int(str3){
             sum += str3
-        }else {
-            sum += 0
         }
         sum += (Int(str4) ?? 0) + (Int(str5) ?? 0)
         
-        print("\(Int(str1)!) + \(Int(str2)) + \(Int(str1)!) + \(Int(str4)) + \(Int(str5)) = \(sum)")
+//        print("\(Int(str1)!) + \(Int(str2)) + \(Int(str1)!) + \(Int(str4)) + \(Int(str5)) = \(sum)")
+   
+        
         
         
 //      Task 6
         
         
         let tuple01: (code: Int, message: String?, errorMessage: String?) = (Int.random (in: 200..<300), "message", nil)
-        let tuple02: (code: Int, message: String?, errorMessage: String?) = (Int.random (in: 300..<600), nil, "error")
 
         if tuple01.code >= 200 && tuple01.code < 300 {
-            print(tuple01.message!)
-        }else{
-            print(tuple02.errorMessage!)
+            print(tuple01.message ?? "error")
         }
         
-        let tuple03: (message: String?, errorMessage: String?) = (nil, "error")
-        print (tuple03.message ?? "error")
+        
+        let tuple02: (message: String?, errorMessage: String?) = (nil, "error")
+        print (tuple02.message ?? "error")
         
         
 //      Task 7
@@ -185,7 +179,7 @@ class ViewController: UIViewController {
 //        Task 8
         
         
-        var tupleOfFive: (num1: Int?, num2: Int?, num3: Int?, num4: Int?, num5: Int?) = (34, 4, nil, 29, nil)
+        let tupleOfFive: (num1: Int?, num2: Int?, num3: Int?, num4: Int?, num5: Int?) = (34, 4, nil, 29, nil)
         
         
         var sumTupleOfFive1 = (tupleOfFive.num1 ?? 0) + (tupleOfFive.num2 ?? 0) + (tupleOfFive.num3 ?? 0)
@@ -233,18 +227,6 @@ class ViewController: UIViewController {
             sumTupleOfFive3 += num5
         }
         print("sum - \(sumTupleOfFive3)")
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
