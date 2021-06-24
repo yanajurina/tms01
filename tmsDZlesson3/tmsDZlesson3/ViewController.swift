@@ -47,11 +47,11 @@ class ViewController: UIViewController {
 //       Task 5
         
         
-        let str1: String = "888"
-        let str2: String = "45tqw"
-        let str3: String = "3"
-        let str4: String = "4r4"
-        let str5: String = "df56"
+        let str1: String = "866r"
+        let str2: String = "90"
+        let str3: String = "e44"
+        let str4: String = "7"
+        let str5: String = "13"
         
         var sum = 0
         
@@ -66,8 +66,18 @@ class ViewController: UIViewController {
         }
         sum += (Int(str4) ?? 0) + (Int(str5) ?? 0)
         
-//        print("\(Int(str1)!) + \(Int(str2)) + \(Int(str1)!) + \(Int(str4)) + \(Int(str5)) = \(sum)")
-   
+        var strSum = ""
+        strSum = Int(str1) != nil ? str1: "nil"
+        strSum += " + "
+        strSum += Int(str2) != nil ? str2: "nil"
+        strSum += " + "
+        strSum += Int(str3) != nil ? str3: "nil"
+        strSum += " + "
+        strSum += Int(str4) != nil ? str4: "nil"
+        strSum += " + "
+        strSum += Int(str5) != nil ? str5: "nil"
+        
+        print ("\(strSum) = \(sum)")
         
         
         
