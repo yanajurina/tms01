@@ -20,12 +20,14 @@ class ViewController: UIViewController {
         let oneLett = "f"
         
         for (index, value) in englishAlph.enumerated() {
-            print ("индекс \(index), значение \(value)")
-            if index == 5 {
+            if String (value) == oneLett {
                 print ("значение \(oneLett) находится под индексом \(index)")
-                break
             }
         }
+         
+        
+        
+        
         
 //Task 2
         print("Task 2")
