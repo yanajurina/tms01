@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         groupOfStudent.studOfGr()
         
         print ("Metoth2")
-        groupOfStudent.studOfGrBest()
+        groupOfStudent.studOfGrBest(7)
         
         
          

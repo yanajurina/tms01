@@ -27,10 +27,10 @@ class Group {
     
     
     
-    func studOfGrBest () {
+    func studOfGrBest (_ minAverageScore: Int) {
         var index = students.count - 1
         while index > -1 {
-            if self.students[index].averageScore < 9 {
+            if self.students[index].averageScore < minAverageScore {
                 self.students.remove(at: index)
             }
             index -= 1
