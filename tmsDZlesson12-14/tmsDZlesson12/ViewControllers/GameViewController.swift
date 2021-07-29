@@ -9,6 +9,10 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    enum DirectionCheckers {
+        case white, black
+    }
+    
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var buttonStop: UIButton!
     
@@ -21,15 +25,39 @@ class GameViewController: UIViewController {
     var countTickMinutes2: Int = 0
     var labelTimer: UILabel!
     var isLongPress: Bool = false
+    var currentDirection: DirectionCheckers = .white
+    var stepCount: Int = 1
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        buttonStop.layer.cornerRadius = buttonStop.frame.size.width / 4
-    
         initTimer()
-        timerLabel.text = "\(countTickMinutes2)\(countTickMinutes1):\(countTickSekonds2)\(countTickSekonds1)"
+        
+        let textTimerLabel = "\(countTickMinutes2)\(countTickMinutes1):\(countTickSekonds2)\(countTickSekonds1)"
+        let attribut = NSMutableAttributedString(string: "\(textTimerLabel)", attributes: [
+                                                                               .font: UIFont(name: "Anton-Regular", size: 40)
+                                                                                ?? UIFont.systemFont(ofSize: 20.0),
+                                                                               .foregroundColor: UIColor.orange
+        ])
+        var attr: [NSMutableAttributedString.Key: Any] = [.font: UIFont(name: "Anton-Regular", size: 40)
+                                                    ?? UIFont.systemFont(ofSize: 20.0),
+                                                   .foregroundColor: UIColor.orange]
+        let attributesStop = NSMutableAttributedString(string: "Stop")
+        attributesStop.addAttributes(attr, range: NSRange(location: 0, length: 3))
+        attr[.font] = UIFont(name: "Anton-Regular", size: 10)
+        attr[.foregroundColor] = UIColor.orange
+        attributesStop.addAttributes(attr, range: NSRange(location: 0, length: 3))
+    
+        timerLabel.attributedText = attribut
+          
+        buttonStop.setAttributedTitle(NSAttributedString(string: "Stop"), for: .application)
+        buttonStop.layer.cornerRadius = buttonStop.frame.size.width / 4
+        buttonStop.addShadow(with: .green, opacity: 3, shadowOffset: .zero)
+        buttonStop.titleLabel?.attributedText = attributesStop
+    
+        
+
 
         let size = view.bounds.size.width - 32
         board = UIView(frame: CGRect(origin: .zero, size: CGSize(width: size, height: size)))
@@ -56,10 +84,12 @@ class GameViewController: UIViewController {
                     checkers.image = UIImage(named: "white")
                     check.addSubview(checkers)
                 }
+                checkers.layer.cornerRadius = checkers.frame.size.width / 2
+                checkers.tag = row < 3 ? 0 : 1
                 checkers.isUserInteractionEnabled = true
                 
                 let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressRecognizer(_:)))
-                longPress.minimumPressDuration = 0.1
+                longPress.minimumPressDuration = 0.2
                 longPress.delegate = self
                 checkers.addGestureRecognizer(longPress)
                 
@@ -106,20 +136,25 @@ class GameViewController: UIViewController {
     }
     
     @objc func longPressRecognizer(_ sender: UILongPressGestureRecognizer) {
-        guard !isLongPress else {return}
-//        isLongPress = true
-        UIImageView.animate(withDuration: 0.3) { [self] in
-            sender.view?.transform = self.view.transform.scaledBy(x: 1.3, y: 1.3)
+        switch sender.state {
+        case .began:
+            UIImageView.animate(withDuration: 0.3) {
+                sender.view?.transform = self.checkers.transform.scaledBy(x: 1.3, y: 1.3)
+                }
+        case .ended:
+            UIImageView.animate(withDuration: 0.3) {
+                sender.view?.transform = .identity
+            }
+        default: break
         }
     }
     
-    @objc func panGestureRecognizer(_ sender: UIPanGestureRecognizer) {
-        
+    
+   @objc func panGestureRecognizer(_ sender: UIPanGestureRecognizer) {
         let location = sender.location(in: board)
         let translation = sender.translation(in: board)
-    
+
         switch sender.state {
-        
         case .changed:
             guard let column = sender.view?.superview, let cellOrigin = sender.view?.frame.origin else { return }
             board.bringSubviewToFront(column)
@@ -130,31 +165,24 @@ class GameViewController: UIViewController {
             UIImageView.animate(withDuration: 0.3) {
                 sender.view?.transform = .identity
             }
-            isLongPress = false
             let currentCell = board.subviews.first(where: {$0.frame.contains(location) && $0.backgroundColor == .black })
             
             sender.view?.frame.origin = CGPoint(x: 5.0, y: 5.0)
-            guard let newCell = currentCell, newCell.subviews.isEmpty, let cell = sender.view else {
-                return
-            }
+            guard let newCell = currentCell, newCell.subviews.isEmpty, let cell = sender.view else {return}
             currentCell?.addSubview(cell)
-        case .cancelled:
-            UIImageView.animate(withDuration: 0.3) {
-                sender.view?.transform = .identity
-            }
-            isLongPress = false
+            
         default: break
         }
     }
     
-    @IBAction func stopButton(_ sender: UIButton) {
+    @IBAction func stopButton(_ sender: Any) {
         timer?.invalidate()
         initTimer()
     }
 }
-
-extension GameViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+    
+    extension GameViewController: UIGestureRecognizerDelegate {
+        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith
+                                otherGestureRecognizer:UIGestureRecognizer) -> Bool {return true}
     }
-}
+
