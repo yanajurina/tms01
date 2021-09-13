@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SFt-2V-3kw">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="2LZ-ca-Buq">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="SFt-2V-3kw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="C1a-eS-QFZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="R7X-Ir-7a0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dO-a8-BQp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1192" y="90"/>
+        </scene>
+        <!--First View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="dzWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="jpk-ak-WDc">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
+                            <textField opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter city" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lcd-pK-t8a">
+                                <rect key="frame" x="105" y="399.66666666666669" width="180" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="308-ec-VaQ"/>
+                                    <constraint firstAttribute="width" constant="180" id="60X-Lt-kt9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgU-vi-Nw0">
+                                <rect key="frame" x="165" y="484.66666666666674" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="NFs-eH-oG9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Go"/>
+                                <connections>
+                                    <action selector="goButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="07d-rk-BQW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YgU-vi-Nw0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="165" id="2VS-OK-5MI"/>
+                            <constraint firstItem="Lcd-pK-t8a" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4BW-rz-4BD"/>
+                            <constraint firstItem="Lcd-pK-t8a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JKX-Si-AC3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YgU-vi-Nw0" secondAttribute="trailing" constant="165" id="LRW-W4-ht7"/>
+                            <constraint firstItem="jpk-ak-WDc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Qoe-ss-XvQ"/>
+                            <constraint firstItem="YgU-vi-Nw0" firstAttribute="top" secondItem="Lcd-pK-t8a" secondAttribute="bottom" constant="40" id="U1g-rb-l4U"/>
+                            <constraint firstItem="jpk-ak-WDc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WGd-Mz-se4"/>
+                            <constraint firstAttribute="bottom" secondItem="jpk-ak-WDc" secondAttribute="bottom" id="cc9-X7-1vY"/>
+                            <constraint firstItem="jpk-ak-WDc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fD2-Xk-MDw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wjX-8T-wHs"/>
+                    <connections>
+                        <outlet property="cityTextField" destination="Lcd-pK-t8a" id="dZD-pu-sJI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-429.23076923076923" y="89.5734597156398"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="first" width="1080" height="1920"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

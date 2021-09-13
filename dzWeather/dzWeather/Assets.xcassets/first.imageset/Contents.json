@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Скачать 1080x1920 звезды, небо, звездное небо, блеск, галактика, космос обои, картинки samsung galaxy s4, s5, note, sony xperia z, z1, z2, z3, htc one, lenovo vibe.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
