@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ETY-ak-5NP">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,24 +13,39 @@
             <objects>
                 <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="ETY-ak-5NP" customClass="ScrollViewController" customModule="DZlesson15" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VAF-ca-oAd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y7t-MZ-Sjh">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7t-MZ-Sjh">
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coy-R2-6To">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1889"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coy-R2-6To">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1451.6666666666667"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-31-MyK">
+                                                <rect key="frame" x="10" y="10" width="50" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="N9j-oI-F0r"/>
+                                                    <constraint firstAttribute="width" constant="50" id="nAa-QA-cfM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <state key="normal" title="back">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="backSettings:" destination="ETY-ak-5NP" eventType="touchUpInside" id="Nkl-5X-Epu"/>
+                                                </connections>
+                                            </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ru-gX-07m">
-                                                <rect key="frame" x="0.0" y="20" width="414" height="100"/>
+                                                <rect key="frame" x="0.0" y="40" width="390" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="Ds6-vZ-KmP"/>
+                                                    <constraint firstAttribute="width" constant="390" id="ocf-8O-5mF"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QnG-mv-ONR">
-                                                <rect key="frame" x="16" y="65" width="382" height="100"/>
+                                                <rect key="frame" x="16" y="85" width="358" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="ttH-qx-mch"/>
                                                 </constraints>
@@ -39,40 +54,39 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVN-ub-KKm" userLabel="Английское название игры Шашки –">
-                                                <rect key="frame" x="16" y="215" width="382" height="531.5"/>
-                                                <mutableString key="text">Английское название игры Шашки – Checkers – происходит от checkered, что обозначает «клеточный». Это не удивительно, ведь в игре шашки пожалуй самый главный атрибут – доска, разбитая на клетки. А история происхождения такой клетчатой доски уходит в Древний Египет с его игрой Алькерк в 1600ые годы до нашей эры. 
+                                                <rect key="frame" x="20" y="235" width="350" height="610"/>
+                                                <mutableString key="text">The English name of the game Checkers - Checkers - comes from checkered, which means "cellular". This is not surprising, because in the game of checkers, perhaps the most important attribute is a board, divided into cells. And the history of the origin of such a checkered board goes back to Ancient Egypt with its game Alkerk in the 1600s BC.
 
-Современные шашки изобрели французы, примерно в середине девятнадцатого века, скрестившие древнегреческий Алькерк с игрой в шахматы. Шашки стали ходить как Королева в шахматах. В Англии игру до сих пор называют – draughts – ход королевы в шахматах.
+Modern checkers were invented by the French, around the middle of the nineteenth century, who crossed the ancient Greek Alkerk with the game of chess. Checkers began to walk like a Queen in chess. In England, the game is still called - draughts - the queen's move in chess.
 
-Первый чемпионат мира по шашкам провели в 1847 году. Победителем стал Эндрю Андерсон из Шотландии. Так как большинство партий на чемпионатах мира заканчивались вничью, в 1890 году было введено правило двухходового запрета – первые два хода выбирались абсолютно случайно. В 1934 году правило трансформировали в трехходовой запрет, когда уже три хода выбирались случайно, но из допущенного списка комбинаций.</mutableString>
+The first World Drafts Championship was held in 1847. The winner was Andrew Anderson from Scotland. Since most of the games in the world championships ended in a draw, in 1890 the two-way prohibition rule was introduced - the first two moves were chosen absolutely randomly. In 1934, the rule was transformed into a three-way prohibition, when three moves were already chosen at random, but from the allowed list of combinations.</mutableString>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="AzO-YH-7mc">
-                                                <rect key="frame" x="87" y="806.5" width="240" height="454"/>
+                                                <rect key="frame" x="87" y="905" width="216" height="454"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="P7t-fd-hYr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="216" height="128"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="QYC-0w-ED5">
-                                                        <rect key="frame" x="0.0" y="163" width="240" height="128"/>
+                                                        <rect key="frame" x="0.0" y="163" width="216" height="128"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="ynv-zb-OWP">
-                                                        <rect key="frame" x="0.0" y="326" width="240" height="128"/>
+                                                        <rect key="frame" x="0.0" y="326" width="216" height="128"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="QYC-0w-ED5" firstAttribute="width" secondItem="P7t-fd-hYr" secondAttribute="width" id="2by-MQ-Skf"/>
-                                                    <constraint firstAttribute="width" constant="240" id="7Qu-HN-637"/>
                                                     <constraint firstItem="ynv-zb-OWP" firstAttribute="height" secondItem="QYC-0w-ED5" secondAttribute="height" id="DRh-S4-Ega"/>
                                                     <constraint firstItem="QYC-0w-ED5" firstAttribute="height" secondItem="P7t-fd-hYr" secondAttribute="height" id="JZ9-vi-hLL"/>
                                                     <constraint firstAttribute="height" constant="454" id="mKH-Cd-DWI"/>
                                                     <constraint firstItem="QYC-0w-ED5" firstAttribute="width" secondItem="P7t-fd-hYr" secondAttribute="width" id="rWC-0v-Oc4"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Lack!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMF-40-KIT">
-                                                <rect key="frame" x="87" y="1310.5" width="240" height="27"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Luck!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMF-40-KIT">
+                                                <rect key="frame" x="87" y="1409" width="216" height="26.666666666666742"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="23"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -80,29 +94,42 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <constraints>
-                                            <constraint firstItem="NVN-ub-KKm" firstAttribute="leading" secondItem="coy-R2-6To" secondAttribute="leading" constant="16" id="1hs-qi-cIj"/>
                                             <constraint firstItem="NVN-ub-KKm" firstAttribute="top" secondItem="QnG-mv-ONR" secondAttribute="bottom" constant="50" id="1mE-IA-QpY"/>
-                                            <constraint firstAttribute="trailing" secondItem="NVN-ub-KKm" secondAttribute="trailing" constant="16" id="4gX-fn-D5a"/>
                                             <constraint firstAttribute="trailing" secondItem="AzO-YH-7mc" secondAttribute="trailing" constant="87" id="Byl-fY-hgz"/>
+                                            <constraint firstAttribute="trailing" secondItem="NVN-ub-KKm" secondAttribute="trailing" constant="20" id="DrD-6A-gER"/>
                                             <constraint firstItem="AzO-YH-7mc" firstAttribute="leading" secondItem="coy-R2-6To" secondAttribute="leading" constant="87" id="JOl-Ed-GfH"/>
                                             <constraint firstItem="AzO-YH-7mc" firstAttribute="top" secondItem="NVN-ub-KKm" secondAttribute="bottom" constant="60" id="JoQ-DL-HSo"/>
+                                            <constraint firstItem="3Mx-31-MyK" firstAttribute="leading" secondItem="coy-R2-6To" secondAttribute="leading" constant="10" id="Pcw-6Z-PYw"/>
+                                            <constraint firstAttribute="trailing" secondItem="7ru-gX-07m" secondAttribute="trailing" id="Qbs-kU-9g6"/>
                                             <constraint firstAttribute="trailing" secondItem="7ru-gX-07m" secondAttribute="trailing" id="Rl3-d0-XYJ"/>
                                             <constraint firstItem="CMF-40-KIT" firstAttribute="top" secondItem="AzO-YH-7mc" secondAttribute="bottom" constant="50" id="S5c-jP-IfA"/>
                                             <constraint firstItem="7ru-gX-07m" firstAttribute="leading" secondItem="coy-R2-6To" secondAttribute="leading" id="dBz-8f-8kJ"/>
-                                            <constraint firstItem="7ru-gX-07m" firstAttribute="top" secondItem="coy-R2-6To" secondAttribute="top" constant="20" id="fas-Cj-onF"/>
+                                            <constraint firstItem="7ru-gX-07m" firstAttribute="top" secondItem="coy-R2-6To" secondAttribute="top" constant="40" id="fas-Cj-onF"/>
                                             <constraint firstItem="CMF-40-KIT" firstAttribute="leading" secondItem="AzO-YH-7mc" secondAttribute="leading" id="mP2-0Y-AlQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="CMF-40-KIT" secondAttribute="bottom" constant="16" id="n5S-xP-ccE"/>
                                             <constraint firstItem="CMF-40-KIT" firstAttribute="trailing" secondItem="AzO-YH-7mc" secondAttribute="trailing" id="n6W-i3-wqc"/>
                                             <constraint firstItem="QnG-mv-ONR" firstAttribute="bottom" secondItem="7ru-gX-07m" secondAttribute="bottom" constant="45" id="u2K-H7-ST5"/>
+                                            <constraint firstItem="NVN-ub-KKm" firstAttribute="leading" secondItem="coy-R2-6To" secondAttribute="leading" constant="20" id="ugM-2O-vf7"/>
                                             <constraint firstItem="QnG-mv-ONR" firstAttribute="leading" secondItem="coy-R2-6To" secondAttribute="leading" constant="16" id="v1o-KU-Gww"/>
                                             <constraint firstAttribute="trailing" secondItem="QnG-mv-ONR" secondAttribute="trailing" constant="16" id="waR-eP-oNb"/>
+                                            <constraint firstItem="3Mx-31-MyK" firstAttribute="top" secondItem="coy-R2-6To" secondAttribute="top" constant="10" id="xxT-Y8-ZDk"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="coy-R2-6To" secondAttribute="bottom" id="5wC-nG-8r6"/>
+                                    <constraint firstAttribute="trailing" secondItem="coy-R2-6To" secondAttribute="trailing" id="7f3-cD-TOM"/>
+                                    <constraint firstItem="coy-R2-6To" firstAttribute="leading" secondItem="y7t-MZ-Sjh" secondAttribute="leading" id="8Jh-yl-DMB"/>
                                     <constraint firstItem="coy-R2-6To" firstAttribute="top" secondItem="y7t-MZ-Sjh" secondAttribute="top" id="A2a-PK-ho8"/>
+                                    <constraint firstItem="coy-R2-6To" firstAttribute="leading" secondItem="y7t-MZ-Sjh" secondAttribute="leading" id="CWZ-sP-DYU"/>
                                     <constraint firstItem="coy-R2-6To" firstAttribute="leading" secondItem="y7t-MZ-Sjh" secondAttribute="leading" id="DhF-kc-JId"/>
+                                    <constraint firstAttribute="trailing" secondItem="coy-R2-6To" secondAttribute="trailing" id="DhP-fO-pOU"/>
+                                    <constraint firstItem="coy-R2-6To" firstAttribute="leading" secondItem="y7t-MZ-Sjh" secondAttribute="leading" id="GvV-5V-PNp"/>
+                                    <constraint firstItem="coy-R2-6To" firstAttribute="leading" secondItem="y7t-MZ-Sjh" secondAttribute="leading" id="NHH-ek-AkE"/>
                                     <constraint firstAttribute="trailing" secondItem="coy-R2-6To" secondAttribute="trailing" id="Phn-eC-1Nm"/>
-                                    <constraint firstAttribute="bottom" secondItem="coy-R2-6To" secondAttribute="bottom" constant="2000" id="V5t-yn-ugg"/>
+                                    <constraint firstItem="coy-R2-6To" firstAttribute="top" secondItem="y7t-MZ-Sjh" secondAttribute="top" id="cIB-nS-f4i"/>
+                                    <constraint firstAttribute="trailing" secondItem="coy-R2-6To" secondAttribute="trailing" id="hQG-np-t8X"/>
+                                    <constraint firstItem="coy-R2-6To" firstAttribute="top" secondItem="y7t-MZ-Sjh" secondAttribute="top" id="lOS-F6-haZ"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -112,9 +139,9 @@
                             <constraint firstItem="y7t-MZ-Sjh" firstAttribute="leading" secondItem="e3v-O4-O09" secondAttribute="leading" id="1at-os-eKC"/>
                             <constraint firstItem="e3v-O4-O09" firstAttribute="trailing" secondItem="y7t-MZ-Sjh" secondAttribute="trailing" id="JvX-lz-CcH"/>
                             <constraint firstItem="y7t-MZ-Sjh" firstAttribute="top" secondItem="e3v-O4-O09" secondAttribute="top" id="See-x2-FQn"/>
+                            <constraint firstItem="e3v-O4-O09" firstAttribute="bottom" secondItem="y7t-MZ-Sjh" secondAttribute="bottom" id="xHG-qf-cxK"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="2000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9d-bf-P4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,11 +152,11 @@
             <objects>
                 <viewController storyboardIdentifier="ScrollViewController" id="TpT-cq-sHM" customClass="ScrollViewController" customModule="DZlesson15" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ciF-Z3-geB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDo-Rt-Mb0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5h6-bb-DZ4">
                                         <rect key="frame" x="0.0" y="20" width="414" height="100"/>
@@ -148,22 +175,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Английское название игры Шашки – Checkers – " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpv-Dg-Tse" userLabel="Английское название игры Шашки –">
-                                        <rect key="frame" x="16" y="215" width="382" height="39.5"/>
+                                        <rect key="frame" x="16" y="215" width="382" height="39.666666666666657"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="0Mx-UG-Ggr">
-                                        <rect key="frame" x="87" y="314.5" width="240" height="454"/>
+                                        <rect key="frame" x="87" y="314.66666666666674" width="240" height="454"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="4hr-4g-NQj">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="nxY-SR-dNz">
-                                                <rect key="frame" x="0.0" y="163" width="240" height="128"/>
+                                                <rect key="frame" x="0.0" y="162.99999999999994" width="240" height="128"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="s9W-MN-YVe">
-                                                <rect key="frame" x="0.0" y="326" width="240" height="128"/>
+                                                <rect key="frame" x="0.0" y="325.99999999999994" width="240" height="128"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -176,7 +203,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Lack!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7L-21-iZ0">
-                                        <rect key="frame" x="87" y="818.5" width="240" height="27"/>
+                                        <rect key="frame" x="87" y="818.66666666666663" width="240" height="26.666666666666629"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="23"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>

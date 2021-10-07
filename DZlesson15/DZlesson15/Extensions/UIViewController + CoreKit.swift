@@ -8,11 +8,11 @@
 import UIKit
 
 extension UIViewController {
-    
+
     func getViewController (from nameStoryboard: String?) -> UIViewController {
-        let storyboard = UIStoryboard.init(name: nameStoryboard!, bundle: nil)
-        let currentViewController = storyboard.instantiateInitialViewController()
-        return currentViewController!
+        let storyboard = UIStoryboard(name: nameStoryboard!, bundle: nil)
+        let vc = storyboard.instantiateInitialViewController()
+        return vc!
     }
 
 @IBAction func back(_ sender: UIButton) {

@@ -12,8 +12,7 @@ class ScrollViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func backToSettings (_ sender: Any) {
-        
+    @IBAction func backSettings(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
-    
 }

@@ -1,0 +1,11 @@
+/* 
+  localized.strings
+  DZlesson15
+
+  Created by Янина on 7.10.21.
+  
+*/
+//"hello_launchScreen_text" = "Hello!";
+"go_button_text" = "GO!";
+"results_button_text" = "Results";
+"settings_button_text" = "Settings";
