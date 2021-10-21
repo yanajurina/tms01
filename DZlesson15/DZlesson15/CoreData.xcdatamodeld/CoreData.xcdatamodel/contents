@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Results" representedClassName="Results" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="String"/>
+        <attribute name="playerBlack" optional="YES" attributeType="String"/>
+        <attribute name="playerWhite" optional="YES" attributeType="String"/>
+        <attribute name="winner" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Results" positionX="434.1260986328125" positionY="-1804.227416992188" width="128" height="103"/>
+    </elements>
+</model>

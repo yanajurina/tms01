@@ -7,10 +7,6 @@
 
 import UIKit
 
-enum Language: Int {
-    case english = 0
-    case russian = 1
-}
 class RootViewController: UIViewController {
    
     @IBOutlet var buttonsRootVC: [UIButton]!
@@ -45,6 +41,7 @@ class RootViewController: UIViewController {
     
     @IBAction func selectLanguage(_ sender: UISegmentedControl) {
         guard let sectectedLanguage = Language(rawValue: sender.selectedSegmentIndex), sectectedLanguage != currentLanguage else { return }
+        currentLanguage = currentLanguage == .english ? .russian : .english
         switch sectectedLanguage {
         case .english: localized(by: "en")
         case .russian: localized(by: "ru")
@@ -52,15 +49,21 @@ class RootViewController: UIViewController {
     }
     
     @IBAction func gameButton(_ sender: UIButton) {
-        self.navigationController?.pushViewController(getViewController(from: "Game"), animated: true)
+        guard let vc = getViewController(from: "Game") as? GameViewController else { return }
+        vc.currentLanguage = currentLanguage
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction   func resultsButton(_ sender: UIButton) {
-        self.navigationController?.pushViewController(getViewController(from: "Results"), animated: true)
+        guard let vc = getViewController(from: "Results") as? ResultsViewController else { return }
+        vc.currentLanguage = currentLanguage
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func settingsButton (_ sender: UIButton) {
-        self.navigationController?.pushViewController(getViewController(from: "Settings"), animated: true)
+        guard let vc = getViewController(from: "Settings") as? SettingsViewController else { return }
+        vc.currentLanguage = currentLanguage
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

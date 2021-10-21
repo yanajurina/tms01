@@ -17,5 +17,9 @@ enum KeysUserDefaults: String {
     case timerSec = "timerSec"
     case timerMin = "timerMin"
     case backgroundImage = "backgroundImage"
-    case currentCheker = "currentCheker"
+    case saveCurrentCheker = "saveCurrentCheker"
+    case whiteChecker = "whiteChecker"
+    case blackChecker = "blackChecker"
+    case stateSwitch = "stateSwitch"
+    case checkers = "checkers"
 }

@@ -9,13 +9,20 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var settingsLabel: UILabel!
     @IBOutlet weak var settingsTableView: UITableView!
-    
-    let settingsTitles = ["Choose checkers style", "Сhoose the background", "About the game"]
+    @IBOutlet weak var customBackButton: CustomButton!
+
+    var currentLanguage: Language = .english
+    var settingsTitles = ["Choose checkers style", "Сhoose the background", "About the game"]
     let nameNextScreen = ["Style", "Background", "Scroll"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        customBackButton.delegate = self
+        
+        setupLanguage()
         
         settingsTableView.dataSource = self
         settingsTableView.delegate = self
@@ -46,8 +53,24 @@ class SettingsViewController: UIViewController {
         alert.addAction(camera)
         present(alert, animated: true, completion: nil)
     }
-}
+    
+    func setupLanguage() {
+        switch currentLanguage {
+        case .english: localized(by: "en")
+        case .russian: localized(by: "ru")
+        }
+    }
+    
+    func localized(by languageCode: String) {
+        guard let languagePath = Bundle.main.path(forResource: languageCode, ofType: "lproj"), let languageBundle = Bundle(path: languagePath) else { return }
+        customBackButton.text = NSLocalizedString("back_button_text", bundle: languageBundle, value: "", comment: "")
+        settingsLabel.text = NSLocalizedString("settings_button_text", bundle: languageBundle, value: "", comment: "")
+        settingsTitles = [NSLocalizedString("choose_checkers_style", bundle: languageBundle, value: "", comment: ""),
+                          NSLocalizedString("choose_the_background", bundle: languageBundle, value: "", comment: ""),
+                          NSLocalizedString("about_the_game", bundle: languageBundle, value: "", comment: "")]
+    }
 
+}
 
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,11 +94,20 @@ extension SettingsViewController: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard indexPath.row != 1 else {
+        switch indexPath.row {
+        case 0:
+            guard let vc = getViewController(from: nameNextScreen[0]) as? StyleViewController else { return }
+            vc.currentLanguage = currentLanguage
+            navigationController?.pushViewController(vc, animated: true)
+        case 1:
             chooseBackground()
-            return
+        case 2:
+            guard let vc = getViewController(from: nameNextScreen[2]) as? ScrollViewController else { return }
+            vc.currentLanguage = currentLanguage
+            navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
         }
-        navigationController?.pushViewController(getViewController(from: nameNextScreen[indexPath.row]),                                          animated: true)
     }
 }
 
@@ -91,5 +123,11 @@ extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationC
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SettingsViewController: CustomBattonDelegate {
+    func buttonDidTap(_ sender: CustomButton) {
+        navigationController?.popToRootViewController(animated: true)
     }
 }

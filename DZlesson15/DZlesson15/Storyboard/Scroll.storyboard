@@ -22,13 +22,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coy-R2-6To">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1451.6666666666667"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-31-MyK">
-                                                <rect key="frame" x="10" y="10" width="50" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-31-MyK">
+                                                <rect key="frame" x="10" y="10" width="60" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="N9j-oI-F0r"/>
-                                                    <constraint firstAttribute="width" constant="50" id="nAa-QA-cfM"/>
+                                                    <constraint firstAttribute="width" constant="60" id="nAa-QA-cfM"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="back">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -49,17 +49,17 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="ttH-qx-mch"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="61"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="51"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVN-ub-KKm" userLabel="Английское название игры Шашки –">
                                                 <rect key="frame" x="20" y="235" width="350" height="610"/>
-                                                <mutableString key="text">The English name of the game Checkers - Checkers - comes from checkered, which means "cellular". This is not surprising, because in the game of checkers, perhaps the most important attribute is a board, divided into cells. And the history of the origin of such a checkered board goes back to Ancient Egypt with its game Alkerk in the 1600s BC.
+                                                <string key="text">The English name of the game Checkers - Checkers - comes from checkered, which means "cellular". This is not surprising, because in the game of checkers, perhaps the most important attribute is a board, divided into cells. And the history of the origin of such a checkered board goes back to Ancient Egypt with its game Alkerk in the 1600s BC.
 
 Modern checkers were invented by the French, around the middle of the nineteenth century, who crossed the ancient Greek Alkerk with the game of chess. Checkers began to walk like a Queen in chess. In England, the game is still called - draughts - the queen's move in chess.
 
-The first World Drafts Championship was held in 1847. The winner was Andrew Anderson from Scotland. Since most of the games in the world championships ended in a draw, in 1890 the two-way prohibition rule was introduced - the first two moves were chosen absolutely randomly. In 1934, the rule was transformed into a three-way prohibition, when three moves were already chosen at random, but from the allowed list of combinations.</mutableString>
+The first World Drafts Championship was held in 1847. The winner was Andrew Anderson from Scotland. Since most of the games in the world championships ended in a draw, in 1890 the two-way prohibition rule was introduced - the first two moves were chosen absolutely randomly. In 1934, the rule was transformed into a three-way prohibition, when three moves were already chosen at random, but from the allowed list of combinations.</string>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -142,107 +142,16 @@ The first World Drafts Championship was held in 1847. The winner was Andrew Ande
                             <constraint firstItem="e3v-O4-O09" firstAttribute="bottom" secondItem="y7t-MZ-Sjh" secondAttribute="bottom" id="xHG-qf-cxK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="3Mx-31-MyK" id="bwg-yj-egU"/>
+                        <outlet property="goodLuckLabel" destination="CMF-40-KIT" id="XCh-LK-4Oi"/>
+                        <outlet property="historyLabel" destination="QnG-mv-ONR" id="aQ7-gV-bu4"/>
+                        <outlet property="textHistoryLabel" destination="NVN-ub-KKm" id="T3E-O8-2wr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9d-bf-P4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1679.7101449275362" y="-54.241071428571423"/>
-        </scene>
-        <!--Scroll View Controller-->
-        <scene sceneID="4sz-Jf-aOh">
-            <objects>
-                <viewController storyboardIdentifier="ScrollViewController" id="TpT-cq-sHM" customClass="ScrollViewController" customModule="DZlesson15" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ciF-Z3-geB">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDo-Rt-Mb0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="766"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5h6-bb-DZ4">
-                                        <rect key="frame" x="0.0" y="20" width="414" height="100"/>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="Ebv-ws-hO2"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iaq-aV-cQO">
-                                        <rect key="frame" x="16" y="65" width="382" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="hMT-bK-g7c"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="61"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Английское название игры Шашки – Checkers – " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpv-Dg-Tse" userLabel="Английское название игры Шашки –">
-                                        <rect key="frame" x="16" y="215" width="382" height="39.666666666666657"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="0Mx-UG-Ggr">
-                                        <rect key="frame" x="87" y="314.66666666666674" width="240" height="454"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="4hr-4g-NQj">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="nxY-SR-dNz">
-                                                <rect key="frame" x="0.0" y="162.99999999999994" width="240" height="128"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="s9W-MN-YVe">
-                                                <rect key="frame" x="0.0" y="325.99999999999994" width="240" height="128"/>
-                                            </imageView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="nxY-SR-dNz" firstAttribute="height" secondItem="4hr-4g-NQj" secondAttribute="height" id="6uF-EL-pZJ"/>
-                                            <constraint firstItem="s9W-MN-YVe" firstAttribute="height" secondItem="nxY-SR-dNz" secondAttribute="height" id="KHg-cj-Mde"/>
-                                            <constraint firstItem="nxY-SR-dNz" firstAttribute="width" secondItem="4hr-4g-NQj" secondAttribute="width" id="MGq-c0-JMx"/>
-                                            <constraint firstAttribute="width" constant="240" id="n5n-DL-uJ2"/>
-                                            <constraint firstAttribute="height" constant="454" id="viK-Fv-bLy"/>
-                                            <constraint firstItem="nxY-SR-dNz" firstAttribute="width" secondItem="4hr-4g-NQj" secondAttribute="width" id="xln-NG-aIV"/>
-                                        </constraints>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Lack!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7L-21-iZ0">
-                                        <rect key="frame" x="87" y="818.66666666666663" width="240" height="26.666666666666629"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="23"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                <constraints>
-                                    <constraint firstItem="Iaq-aV-cQO" firstAttribute="leading" secondItem="nDo-Rt-Mb0" secondAttribute="leading" constant="16" id="3Se-gV-kvo"/>
-                                    <constraint firstItem="5h6-bb-DZ4" firstAttribute="leading" secondItem="nDo-Rt-Mb0" secondAttribute="leading" id="3p8-SL-bJS"/>
-                                    <constraint firstAttribute="trailing" secondItem="Iaq-aV-cQO" secondAttribute="trailing" constant="16" id="6hM-21-6iK"/>
-                                    <constraint firstItem="S7L-21-iZ0" firstAttribute="top" secondItem="0Mx-UG-Ggr" secondAttribute="bottom" constant="50" id="95N-Ra-ChV"/>
-                                    <constraint firstItem="5h6-bb-DZ4" firstAttribute="top" secondItem="nDo-Rt-Mb0" secondAttribute="top" constant="20" id="9WD-Sn-oA5"/>
-                                    <constraint firstItem="S7L-21-iZ0" firstAttribute="trailing" secondItem="0Mx-UG-Ggr" secondAttribute="trailing" id="AVT-bF-T0t"/>
-                                    <constraint firstItem="Vpv-Dg-Tse" firstAttribute="top" secondItem="Iaq-aV-cQO" secondAttribute="bottom" constant="50" id="DuW-T6-ICm"/>
-                                    <constraint firstItem="0Mx-UG-Ggr" firstAttribute="top" secondItem="Vpv-Dg-Tse" secondAttribute="bottom" constant="60" id="H9r-1k-R3d"/>
-                                    <constraint firstItem="0Mx-UG-Ggr" firstAttribute="leading" secondItem="nDo-Rt-Mb0" secondAttribute="leading" constant="87" id="LEj-jH-6Zh"/>
-                                    <constraint firstItem="0Mx-UG-Ggr" firstAttribute="centerX" secondItem="Vpv-Dg-Tse" secondAttribute="centerX" id="ccD-Vg-w89"/>
-                                    <constraint firstItem="Vpv-Dg-Tse" firstAttribute="leading" secondItem="nDo-Rt-Mb0" secondAttribute="leading" constant="16" id="coA-7V-m1D"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Mx-UG-Ggr" secondAttribute="trailing" constant="87" id="eDi-il-kkP"/>
-                                    <constraint firstItem="S7L-21-iZ0" firstAttribute="leading" secondItem="0Mx-UG-Ggr" secondAttribute="leading" id="fLr-PR-JKw"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vpv-Dg-Tse" secondAttribute="trailing" constant="16" id="j11-pk-gv1"/>
-                                    <constraint firstItem="Iaq-aV-cQO" firstAttribute="bottom" secondItem="5h6-bb-DZ4" secondAttribute="bottom" constant="45" id="jAp-tj-seD"/>
-                                    <constraint firstAttribute="trailing" secondItem="5h6-bb-DZ4" secondAttribute="trailing" id="lWx-6R-qG1"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="nxI-dY-rAj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="nDo-Rt-Mb0" firstAttribute="trailing" secondItem="nxI-dY-rAj" secondAttribute="trailing" id="PMT-1k-fj4"/>
-                            <constraint firstItem="nDo-Rt-Mb0" firstAttribute="top" secondItem="nxI-dY-rAj" secondAttribute="top" id="Q1n-Jb-f47"/>
-                            <constraint firstItem="nDo-Rt-Mb0" firstAttribute="leading" secondItem="nxI-dY-rAj" secondAttribute="leading" id="i9A-c2-92b"/>
-                            <constraint firstItem="nxI-dY-rAj" firstAttribute="bottom" secondItem="nDo-Rt-Mb0" secondAttribute="bottom" id="mDg-OL-dq8"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i5v-ao-6qI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-728" y="-54"/>
+            <point key="canvasLocation" x="-1680" y="-54.739336492890992"/>
         </scene>
     </scenes>
     <resources>

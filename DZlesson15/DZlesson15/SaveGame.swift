@@ -17,19 +17,24 @@ class SaveGame: NSObject, NSCoding, NSSecureCoding {
     var playerName1: String = ""
     var playerName2: String = ""
     var backgroundImage: UIImage = UIImage(named: "1")!
-    var currentCheker: Int? = nil
+    var saveCurrentCheker: Int? = nil
+    var styleCheckerGame: String?
+    
+    init (styleCheckerGame: String) {
+        self.styleCheckerGame = styleCheckerGame
+    }
     
     override init() {
         super.init ()
     }
-    
+   
     func encode(with coder: NSCoder) {
         coder.encode(checkersPositionTag, forKey: KeysUserDefaults.checkersPositionTag.rawValue)
         coder.encode(checkersColorTag, forKey: KeysUserDefaults.checkersColorTag.rawValue)
         coder.encode(playerName1, forKey: KeysUserDefaults.playerName1.rawValue)
         coder.encode(playerName2, forKey: KeysUserDefaults.playerName2.rawValue)
         coder.encode(backgroundImage, forKey: KeysUserDefaults.backgroundImage.rawValue)
-        coder.encode(currentCheker, forKey: KeysUserDefaults.currentCheker.rawValue)
+        coder.encode(saveCurrentCheker, forKey: KeysUserDefaults.saveCurrentCheker.rawValue)
     }
     
     required init?(coder: NSCoder) {
@@ -38,14 +43,32 @@ class SaveGame: NSObject, NSCoding, NSSecureCoding {
         playerName1 = coder.decodeObject(forKey: KeysUserDefaults.playerName1.rawValue) as! String
         playerName1 = coder.decodeObject(forKey: KeysUserDefaults.playerName2.rawValue) as! String
         backgroundImage = coder.decodeObject(forKey: KeysUserDefaults.backgroundImage.rawValue) as! UIImage
-        currentCheker = coder.decodeObject(forKey: KeysUserDefaults.currentCheker.rawValue) as? Int
+        saveCurrentCheker = coder.decodeObject(forKey: KeysUserDefaults.saveCurrentCheker.rawValue) as? Int
     }
     
-//    static func saveplayerNames(_ player1: String, player2: String) {
-//        let playerNames = [player1, player2]
-//        let data = try? NSKeyedArchiver.archivedData(withRootObject: playerNames, requiringSecureCoding: true)
-//        let fileURL = documentDirectory.appendingPathComponent(KeysUserDefaults.saveNames.rawValue)
-//        try?data?.write(to: fileURL)
-//    }
+    static func saveStyleChecker(_ selectStyleChecers: [StyleChecker]) {
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    
+        let fileURL0 = documentDirectory.appendingPathComponent(KeysUserDefaults.checkers.rawValue)
+        try? FileManager.default.removeItem(at: fileURL0)
+        
+        let checkers = selectStyleChecers
+        let data = try? NSKeyedArchiver.archivedData(withRootObject: checkers, requiringSecureCoding: true)
+        let fileURL = documentDirectory.appendingPathComponent(KeysUserDefaults.checkers.rawValue)
+        try?data?.write(to: fileURL)
+    
+        print(checkers)
+    }
+    
+    static func getStyleChecker() -> [StyleChecker] {
+        let test = [StyleChecker(whiteChecker: "", blackChecker: "", stateSwitch: true)]
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let fileURL = documentDirectory.appendingPathComponent(KeysUserDefaults.checkers.rawValue)
+        guard let data = FileManager.default.contents(atPath: fileURL.absoluteString.replacingOccurrences(of: "file://", with: "")) else { return test}
+            let object = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [StyleChecker]
+
+        return (object ?? test)
+    }
+
 }
 

@@ -53,10 +53,10 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your names, please" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzv-M1-HCj">
-                                <rect key="frame" x="45" y="264" width="300" height="50"/>
+                                <rect key="frame" x="0.0" y="264" width="390" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="84x-Vx-nrY"/>
-                                    <constraint firstAttribute="width" constant="300" id="Fxz-7A-8xL"/>
+                                    <constraint firstAttribute="width" constant="390" id="Fxz-7A-8xL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -90,8 +90,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="playButton" destination="8Iu-2M-1J8" id="VUb-jj-gE5"/>
                         <outlet property="playerName1" destination="Reh-7T-x4F" id="MhD-Vb-n5b"/>
                         <outlet property="playerName2" destination="syW-z9-S05" id="cr0-7i-4Zh"/>
+                        <outlet property="titleLabel" destination="yzv-M1-HCj" id="hyE-yV-dCU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPQ-bV-f7H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

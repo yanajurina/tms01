@@ -9,16 +9,32 @@ import UIKit
 
 class PlayerNamesViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var playerName1: UITextField!
     @IBOutlet weak var playerName2: UITextField!
+    @IBOutlet weak var playButton: UIButton!
     
     weak var delegate: ViewControllerDelegate?
     
+    var currentLanguage: Language = .english
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupLanguage()
         playerName1.delegate = self
         playerName2.delegate = self
+    }
+    func setupLanguage() {
+        switch currentLanguage {
+        case .english: localized(by: "en")
+        case .russian: localized(by: "ru")
+        }
+    }
+    
+    func localized(by languageCode: String) {
+        guard let languagePath = Bundle.main.path(forResource: languageCode, ofType: "lproj"), let languageBundle = Bundle(path: languagePath) else { return }
+        titleLabel.text = NSLocalizedString("title_label_text", bundle: languageBundle, value: "", comment: "")
+        playButton.setTitle(NSLocalizedString("play_button_text", bundle: languageBundle, value: "", comment: ""), for: .normal)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

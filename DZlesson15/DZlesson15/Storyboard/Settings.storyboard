@@ -24,25 +24,35 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="218"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmV-QP-J35">
-                                            <rect key="frame" x="23" y="16" width="34" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="back">
-                                                <color key="titleColor" red="0.0075735505090000002" green="0.0075735505090000002" blue="0.0075735505090000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="back:" destination="x3d-Pj-TRk" eventType="touchUpInside" id="lam-hS-AKI"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTJ-32-3tX">
                                             <rect key="frame" x="141.5" y="86.5" width="131" height="45"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                             <color key="textColor" systemColor="systemGray2Color"/>
                                             <color key="highlightedColor" systemColor="systemGray5Color"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ae4-Z8-E3a" customClass="CustomButton" customModule="DZlesson15" customModuleProvider="target">
+                                            <rect key="frame" x="11" y="22" width="72" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="72" id="Gf9-kD-oC6"/>
+                                                <constraint firstAttribute="height" constant="30" id="qxU-jE-zc1"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.8524314033" green="0.8524314033" blue="0.8524314033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="Ae4-Z8-E3a" firstAttribute="top" secondItem="GP3-U7-POs" secondAttribute="top" constant="22" id="AzU-SN-QNm"/>
+                                        <constraint firstItem="Ae4-Z8-E3a" firstAttribute="leading" secondItem="GP3-U7-POs" secondAttribute="leading" constant="11" id="RFN-Ca-7bO"/>
                                         <constraint firstItem="iTJ-32-3tX" firstAttribute="centerX" secondItem="GP3-U7-POs" secondAttribute="centerX" id="dRr-wj-aiz"/>
                                         <constraint firstItem="iTJ-32-3tX" firstAttribute="centerY" secondItem="GP3-U7-POs" secondAttribute="centerY" id="ese-j4-Z5M"/>
                                     </constraints>
@@ -54,6 +64,8 @@
                     </view>
                     <connections>
                         <outlet property="SettingsTableView" destination="1sS-x1-9fd" id="z2V-gp-exg"/>
+                        <outlet property="customBackButton" destination="Ae4-Z8-E3a" id="uGh-m5-e6H"/>
+                        <outlet property="settingsLabel" destination="iTJ-32-3tX" id="SHf-ge-OsV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMm-PJ-0eR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
