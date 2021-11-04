@@ -3,11 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C7AEC9988FE5C5BED54A326D /* Pods_dzWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84795E8A1D0CDEDCEBA362D /* Pods_dzWeather.framework */; };
+		F81E740827331F6700553EF9 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E740727331F6700553EF9 /* RealmManager.swift */; };
+		F81E740B2733204700553EF9 /* RealmDataWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E740A2733204700553EF9 /* RealmDataWeather.swift */; };
+		F830379A27289DF100E2F28E /* DataWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830379927289DF100E2F28E /* DataWeather.swift */; };
+		F85C0A922733D20200EC5261 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85C0A912733D20200EC5261 /* GoogleMapViewController.swift */; };
+		F85C0A952733D21E00EC5261 /* GoogleMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F85C0A942733D21E00EC5261 /* GoogleMap.storyboard */; };
 		F8D874D126EE021D00821354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D874D026EE021D00821354 /* AppDelegate.swift */; };
 		F8D874D326EE021D00821354 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D874D226EE021D00821354 /* SceneDelegate.swift */; };
 		F8D874D526EE021D00821354 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D874D426EE021D00821354 /* FirstViewController.swift */; };
@@ -16,14 +21,22 @@
 		F8D874DD26EE022500821354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D874DB26EE022500821354 /* LaunchScreen.storyboard */; };
 		F8D874E826EE0DCC00821354 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D874E726EE0DCC00821354 /* WeatherViewController.swift */; };
 		F8D874EB26EE0DFC00821354 /* WeatherStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D874EA26EE0DFC00821354 /* WeatherStoryboard.storyboard */; };
-		F8D874F026EE129F00821354 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D874EE26EE129F00821354 /* WeatherTableViewCell.swift */; };
-		F8D874F126EE129F00821354 /* WeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D874EF26EE129F00821354 /* WeatherTableViewCell.xib */; };
+		F8DA8259272D4A7100A28635 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA8258272D4A7100A28635 /* HttpManager.swift */; };
+		F8DA825C272D4A8F00A28635 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA825B272D4A8F00A28635 /* ParseManager.swift */; };
+		F8DA8268272D508800A28635 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA8267272D508800A28635 /* APIConstants.swift */; };
+		F8DA826D272D670700A28635 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA826C272D670700A28635 /* MainTabBarController.swift */; };
+		F8DA8273272D6D2B00A28635 /* SwiftMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA8272272D6D2B00A28635 /* SwiftMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		116ADFAC81DAA4E6C3EE0DC8 /* Pods-dzWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dzWeather.release.xcconfig"; path = "Target Support Files/Pods-dzWeather/Pods-dzWeather.release.xcconfig"; sourceTree = "<group>"; };
 		E84795E8A1D0CDEDCEBA362D /* Pods_dzWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dzWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F132028D60EE5FE7B4096803 /* Pods-dzWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dzWeather.debug.xcconfig"; path = "Target Support Files/Pods-dzWeather/Pods-dzWeather.debug.xcconfig"; sourceTree = "<group>"; };
+		F81E740727331F6700553EF9 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		F81E740A2733204700553EF9 /* RealmDataWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataWeather.swift; sourceTree = "<group>"; };
+		F830379927289DF100E2F28E /* DataWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWeather.swift; sourceTree = "<group>"; };
+		F85C0A912733D20200EC5261 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
+		F85C0A942733D21E00EC5261 /* GoogleMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoogleMap.storyboard; sourceTree = "<group>"; };
 		F8D874CD26EE021D00821354 /* dzWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dzWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D874D026EE021D00821354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8D874D226EE021D00821354 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,8 +47,11 @@
 		F8D874DE26EE022500821354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8D874E726EE0DCC00821354 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		F8D874EA26EE0DFC00821354 /* WeatherStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeatherStoryboard.storyboard; sourceTree = "<group>"; };
-		F8D874EE26EE129F00821354 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
-		F8D874EF26EE129F00821354 /* WeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherTableViewCell.xib; sourceTree = "<group>"; };
+		F8DA8258272D4A7100A28635 /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		F8DA825B272D4A8F00A28635 /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
+		F8DA8267272D508800A28635 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		F8DA826C272D670700A28635 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		F8DA8272272D6D2B00A28635 /* SwiftMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +80,33 @@
 				F132028D60EE5FE7B4096803 /* Pods-dzWeather.debug.xcconfig */,
 				116ADFAC81DAA4E6C3EE0DC8 /* Pods-dzWeather.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F85C0A8C2733CEB900EC5261 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				F81E740727331F6700553EF9 /* RealmManager.swift */,
+				F81E740A2733204700553EF9 /* RealmDataWeather.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		F85C0A8D2733D11600EC5261 /* SwiftMap */ = {
+			isa = PBXGroup;
+			children = (
+				F8DA8272272D6D2B00A28635 /* SwiftMapViewController.swift */,
+			);
+			path = SwiftMap;
+			sourceTree = "<group>";
+		};
+		F85C0A8E2733D12E00EC5261 /* GoogleMap */ = {
+			isa = PBXGroup;
+			children = (
+				F85C0A912733D20200EC5261 /* GoogleMapViewController.swift */,
+				F85C0A942733D21E00EC5261 /* GoogleMap.storyboard */,
+			);
+			path = GoogleMap;
 			sourceTree = "<group>";
 		};
 		F8D874C426EE021D00821354 = {
@@ -89,13 +130,18 @@
 		F8D874CF26EE021D00821354 /* dzWeather */ = {
 			isa = PBXGroup;
 			children = (
-				F8D874E626EE0D7500821354 /* WeatherScreen */,
+				F85C0A8C2733CEB900EC5261 /* Realm */,
+				F8DA8257272D4A2800A28635 /* Http */,
+				F8DA826B272D66C100A28635 /* TabBarController */,
 				F8D874E526EE0D5300821354 /* FirstScreen */,
+				F8D874E626EE0D7500821354 /* WeatherScreen */,
+				F8DA8271272D6CED00A28635 /* MapViewControllers */,
 				F8D874D026EE021D00821354 /* AppDelegate.swift */,
 				F8D874D226EE021D00821354 /* SceneDelegate.swift */,
 				F8D874D926EE022500821354 /* Assets.xcassets */,
 				F8D874DB26EE022500821354 /* LaunchScreen.storyboard */,
 				F8D874DE26EE022500821354 /* Info.plist */,
+				F830379927289DF100E2F28E /* DataWeather.swift */,
 			);
 			path = dzWeather;
 			sourceTree = "<group>";
@@ -104,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				F8D874D426EE021D00821354 /* FirstViewController.swift */,
-				F8D874D626EE021D00821354 /* Main.storyboard */,
 			);
 			path = FirstScreen;
 			sourceTree = "<group>";
@@ -112,20 +157,38 @@
 		F8D874E626EE0D7500821354 /* WeatherScreen */ = {
 			isa = PBXGroup;
 			children = (
-				F8D874ED26EE126300821354 /* Cell */,
 				F8D874E726EE0DCC00821354 /* WeatherViewController.swift */,
 				F8D874EA26EE0DFC00821354 /* WeatherStoryboard.storyboard */,
 			);
 			path = WeatherScreen;
 			sourceTree = "<group>";
 		};
-		F8D874ED26EE126300821354 /* Cell */ = {
+		F8DA8257272D4A2800A28635 /* Http */ = {
 			isa = PBXGroup;
 			children = (
-				F8D874EE26EE129F00821354 /* WeatherTableViewCell.swift */,
-				F8D874EF26EE129F00821354 /* WeatherTableViewCell.xib */,
+				F8DA8258272D4A7100A28635 /* HttpManager.swift */,
+				F8DA825B272D4A8F00A28635 /* ParseManager.swift */,
+				F8DA8267272D508800A28635 /* APIConstants.swift */,
 			);
-			path = Cell;
+			path = Http;
+			sourceTree = "<group>";
+		};
+		F8DA826B272D66C100A28635 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				F8DA826C272D670700A28635 /* MainTabBarController.swift */,
+				F8D874D626EE021D00821354 /* Main.storyboard */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		F8DA8271272D6CED00A28635 /* MapViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F85C0A8E2733D12E00EC5261 /* GoogleMap */,
+				F85C0A8D2733D11600EC5261 /* SwiftMap */,
+			);
+			path = MapViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +203,7 @@
 				F8D874CA26EE021D00821354 /* Frameworks */,
 				F8D874CB26EE021D00821354 /* Resources */,
 				58E7FDDDBA5C5339E4E7F9AF /* [CP] Embed Pods Frameworks */,
+				94CD9345962ADABD4662D8FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,8 +252,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8D874EB26EE0DFC00821354 /* WeatherStoryboard.storyboard in Resources */,
+				F85C0A952733D21E00EC5261 /* GoogleMap.storyboard in Resources */,
 				F8D874DD26EE022500821354 /* LaunchScreen.storyboard in Resources */,
-				F8D874F126EE129F00821354 /* WeatherTableViewCell.xib in Resources */,
 				F8D874DA26EE022500821354 /* Assets.xcassets in Resources */,
 				F8D874D826EE021D00821354 /* Main.storyboard in Resources */,
 			);
@@ -213,6 +277,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dzWeather/Pods-dzWeather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94CD9345962ADABD4662D8FC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dzWeather/Pods-dzWeather-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dzWeather/Pods-dzWeather-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dzWeather/Pods-dzWeather-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ECF9A3D7835BE2ADD08BBDCE /* [CP] Check Pods Manifest.lock */ = {
@@ -244,9 +325,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8D874F026EE129F00821354 /* WeatherTableViewCell.swift in Sources */,
+				F81E740B2733204700553EF9 /* RealmDataWeather.swift in Sources */,
+				F8DA825C272D4A8F00A28635 /* ParseManager.swift in Sources */,
 				F8D874D526EE021D00821354 /* FirstViewController.swift in Sources */,
+				F81E740827331F6700553EF9 /* RealmManager.swift in Sources */,
+				F830379A27289DF100E2F28E /* DataWeather.swift in Sources */,
+				F8DA8273272D6D2B00A28635 /* SwiftMapViewController.swift in Sources */,
+				F8DA826D272D670700A28635 /* MainTabBarController.swift in Sources */,
 				F8D874E826EE0DCC00821354 /* WeatherViewController.swift in Sources */,
+				F85C0A922733D20200EC5261 /* GoogleMapViewController.swift in Sources */,
+				F8DA8268272D508800A28635 /* APIConstants.swift in Sources */,
+				F8DA8259272D4A7100A28635 /* HttpManager.swift in Sources */,
 				F8D874D126EE021D00821354 /* AppDelegate.swift in Sources */,
 				F8D874D326EE021D00821354 /* SceneDelegate.swift in Sources */,
 			);

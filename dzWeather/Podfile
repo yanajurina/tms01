@@ -7,5 +7,9 @@ target 'dzWeather' do
 
   # Pods for dzWeather
   pod 'NVActivityIndicatorView'
-
+  pod 'Alamofire', '~> 5.4'
+  pod 'AlamofireNetworkActivityLogger', '~> 3.4'
+  pod 'RealmSwift', '~>10'
+  pod 'GoogleMaps', '5.2.0'
 end
+
