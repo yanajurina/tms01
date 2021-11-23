@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x3d-Pj-TRk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="jHy-2H-vn9">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="x3d-Pj-TRk" customClass="SettingsViewController" customModule="DZlesson15" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TpY-bj-For">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1sS-x1-9fd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="GP3-U7-POs">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="218"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTJ-32-3tX">
+                                            <rect key="frame" x="141.5" y="86.5" width="131" height="45"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                            <color key="textColor" systemColor="systemGray2Color"/>
+                                            <color key="highlightedColor" systemColor="systemGray5Color"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ae4-Z8-E3a" customClass="CustomButton" customModule="DZlesson15" customModuleProvider="target">
+                                            <rect key="frame" x="11" y="22" width="72" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="72" id="Gf9-kD-oC6"/>
+                                                <constraint firstAttribute="height" constant="30" id="qxU-jE-zc1"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.8524314033" green="0.8524314033" blue="0.8524314033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="Ae4-Z8-E3a" firstAttribute="top" secondItem="GP3-U7-POs" secondAttribute="top" constant="22" id="AzU-SN-QNm"/>
+                                        <constraint firstItem="Ae4-Z8-E3a" firstAttribute="leading" secondItem="GP3-U7-POs" secondAttribute="leading" constant="11" id="RFN-Ca-7bO"/>
+                                        <constraint firstItem="iTJ-32-3tX" firstAttribute="centerX" secondItem="GP3-U7-POs" secondAttribute="centerX" id="dRr-wj-aiz"/>
+                                        <constraint firstItem="iTJ-32-3tX" firstAttribute="centerY" secondItem="GP3-U7-POs" secondAttribute="centerY" id="ese-j4-Z5M"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zc1-RY-z1P"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="SettingsTableView" destination="1sS-x1-9fd" id="z2V-gp-exg"/>
+                        <outlet property="customBackButton" destination="Ae4-Z8-E3a" id="uGh-m5-e6H"/>
+                        <outlet property="settingsLabel" destination="iTJ-32-3tX" id="SHf-ge-OsV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nMm-PJ-0eR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15.942028985507248" y="155.35714285714286"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
