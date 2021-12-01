@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D97-qB-4ug">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--News View Controller-->
+        <scene sceneID="kis-Ge-5Qo">
+            <objects>
+                <viewController id="D97-qB-4ug" customClass="NewsViewController" customModule="dzWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xB1-bf-JKi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ea-Cm-UpO">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eeg-Mu-vzu">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemGray6Color"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aed-vL-YHZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eeg-Mu-vzu" firstAttribute="centerX" secondItem="xB1-bf-JKi" secondAttribute="centerX" id="2yb-e5-l24"/>
+                            <constraint firstItem="aed-vL-YHZ" firstAttribute="trailing" secondItem="6Ea-Cm-UpO" secondAttribute="trailing" id="GcW-e8-suo"/>
+                            <constraint firstItem="6Ea-Cm-UpO" firstAttribute="top" secondItem="aed-vL-YHZ" secondAttribute="top" id="JDV-ZE-exs"/>
+                            <constraint firstItem="6Ea-Cm-UpO" firstAttribute="leading" secondItem="aed-vL-YHZ" secondAttribute="leading" id="aU9-Ub-6jA"/>
+                            <constraint firstItem="aed-vL-YHZ" firstAttribute="bottom" secondItem="6Ea-Cm-UpO" secondAttribute="bottom" id="mRU-v7-gfT"/>
+                            <constraint firstItem="eeg-Mu-vzu" firstAttribute="centerY" secondItem="xB1-bf-JKi" secondAttribute="centerY" id="wQI-6C-IOo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activity" destination="eeg-Mu-vzu" id="B1c-Kq-zzg"/>
+                        <outlet property="webView" destination="6Ea-Cm-UpO" id="rBg-TS-Fm8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32J-4f-8ox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7.2463768115942031" y="144.64285714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

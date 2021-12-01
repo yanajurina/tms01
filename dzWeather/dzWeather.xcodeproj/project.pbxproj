@@ -11,8 +11,21 @@
 		F81E740827331F6700553EF9 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E740727331F6700553EF9 /* RealmManager.swift */; };
 		F81E740B2733204700553EF9 /* RealmDataWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E740A2733204700553EF9 /* RealmDataWeather.swift */; };
 		F830379A27289DF100E2F28E /* DataWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830379927289DF100E2F28E /* DataWeather.swift */; };
+		F83E94082740FD6200C589B8 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83E94072740FD6200C589B8 /* History.storyboard */; };
+		F83E94112740FE2B00C589B8 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83E940F2740FE2B00C589B8 /* HistoryTableViewCell.xib */; };
+		F83E9418274100E700C589B8 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83E9417274100E700C589B8 /* HistoryViewController.swift */; };
+		F83E941C2741023F00C589B8 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83E941B2741023F00C589B8 /* HistoryTableViewCell.swift */; };
 		F85C0A922733D20200EC5261 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85C0A912733D20200EC5261 /* GoogleMapViewController.swift */; };
 		F85C0A952733D21E00EC5261 /* GoogleMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F85C0A942733D21E00EC5261 /* GoogleMap.storyboard */; };
+		F86C298427555276009F9302 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C298327555275009F9302 /* NewsViewController.swift */; };
+		F86C298C275552AC009F9302 /* NewsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F86C298B275552AC009F9302 /* NewsViewController.storyboard */; };
+		F8879A8C274A67E100896B64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8879A8B274A67E100896B64 /* GoogleService-Info.plist */; };
+		F8879AA5274A721300896B64 /* RCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8879AA4274A721300896B64 /* RCManager.swift */; };
+		F88DFB6B27498ACD00AE3B44 /* FirstScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F88DFB6A27498ACD00AE3B44 /* FirstScreen.storyboard */; };
+		F88DFB6E27498D2000AE3B44 /* AppleMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F88DFB6D27498D2000AE3B44 /* AppleMap.storyboard */; };
+		F89E9A982754013900E75F6F /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89E9A972754013900E75F6F /* UIViewController + Storyboard.swift */; };
+		F89E9A9C2754043400E75F6F /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89E9A9B2754043400E75F6F /* SettingManager.swift */; };
+		F8AF1DBC2756E53000895046 /* Mountains.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F8AF1DBB2756E53000895046 /* Mountains.mp4 */; };
 		F8D874D126EE021D00821354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D874D026EE021D00821354 /* AppDelegate.swift */; };
 		F8D874D326EE021D00821354 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D874D226EE021D00821354 /* SceneDelegate.swift */; };
 		F8D874D526EE021D00821354 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D874D426EE021D00821354 /* FirstViewController.swift */; };
@@ -24,8 +37,8 @@
 		F8DA8259272D4A7100A28635 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA8258272D4A7100A28635 /* HttpManager.swift */; };
 		F8DA825C272D4A8F00A28635 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA825B272D4A8F00A28635 /* ParseManager.swift */; };
 		F8DA8268272D508800A28635 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA8267272D508800A28635 /* APIConstants.swift */; };
-		F8DA826D272D670700A28635 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA826C272D670700A28635 /* MainTabBarController.swift */; };
-		F8DA8273272D6D2B00A28635 /* SwiftMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA8272272D6D2B00A28635 /* SwiftMapViewController.swift */; };
+		F8DA826D272D670700A28635 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA826C272D670700A28635 /* TabBarController.swift */; };
+		F8DA8273272D6D2B00A28635 /* AppleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA8272272D6D2B00A28635 /* AppleMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +48,21 @@
 		F81E740727331F6700553EF9 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		F81E740A2733204700553EF9 /* RealmDataWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataWeather.swift; sourceTree = "<group>"; };
 		F830379927289DF100E2F28E /* DataWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWeather.swift; sourceTree = "<group>"; };
+		F83E94072740FD6200C589B8 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		F83E940F2740FE2B00C589B8 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		F83E9417274100E700C589B8 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		F83E941B2741023F00C589B8 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		F85C0A912733D20200EC5261 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		F85C0A942733D21E00EC5261 /* GoogleMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoogleMap.storyboard; sourceTree = "<group>"; };
+		F86C298327555275009F9302 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		F86C298B275552AC009F9302 /* NewsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsViewController.storyboard; sourceTree = "<group>"; };
+		F8879A8B274A67E100896B64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F8879AA4274A721300896B64 /* RCManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCManager.swift; sourceTree = "<group>"; };
+		F88DFB6A27498ACD00AE3B44 /* FirstScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstScreen.storyboard; sourceTree = "<group>"; };
+		F88DFB6D27498D2000AE3B44 /* AppleMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppleMap.storyboard; sourceTree = "<group>"; };
+		F89E9A972754013900E75F6F /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
+		F89E9A9B2754043400E75F6F /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
+		F8AF1DBB2756E53000895046 /* Mountains.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mountains.mp4; sourceTree = "<group>"; };
 		F8D874CD26EE021D00821354 /* dzWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dzWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D874D026EE021D00821354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8D874D226EE021D00821354 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,8 +76,8 @@
 		F8DA8258272D4A7100A28635 /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 		F8DA825B272D4A8F00A28635 /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		F8DA8267272D508800A28635 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
-		F8DA826C272D670700A28635 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		F8DA8272272D6D2B00A28635 /* SwiftMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMapViewController.swift; sourceTree = "<group>"; };
+		F8DA826C272D670700A28635 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F8DA8272272D6D2B00A28635 /* AppleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +109,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F83E94052740FC8400C589B8 /* HistoryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F83E94142740FE5200C589B8 /* HistoryTableView */,
+				F83E94132740FE3100C589B8 /* HistoryTableViewCell */,
+			);
+			path = HistoryScreen;
+			sourceTree = "<group>";
+		};
+		F83E94132740FE3100C589B8 /* HistoryTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F83E941B2741023F00C589B8 /* HistoryTableViewCell.swift */,
+				F83E940F2740FE2B00C589B8 /* HistoryTableViewCell.xib */,
+			);
+			path = HistoryTableViewCell;
+			sourceTree = "<group>";
+		};
+		F83E94142740FE5200C589B8 /* HistoryTableView */ = {
+			isa = PBXGroup;
+			children = (
+				F83E9417274100E700C589B8 /* HistoryViewController.swift */,
+				F83E94072740FD6200C589B8 /* History.storyboard */,
+			);
+			path = HistoryTableView;
+			sourceTree = "<group>";
+		};
 		F85C0A8C2733CEB900EC5261 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,12 +145,13 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
-		F85C0A8D2733D11600EC5261 /* SwiftMap */ = {
+		F85C0A8D2733D11600EC5261 /* AppleMap */ = {
 			isa = PBXGroup;
 			children = (
-				F8DA8272272D6D2B00A28635 /* SwiftMapViewController.swift */,
+				F8DA8272272D6D2B00A28635 /* AppleMapViewController.swift */,
+				F88DFB6D27498D2000AE3B44 /* AppleMap.storyboard */,
 			);
-			path = SwiftMap;
+			path = AppleMap;
 			sourceTree = "<group>";
 		};
 		F85C0A8E2733D12E00EC5261 /* GoogleMap */ = {
@@ -107,6 +161,31 @@
 				F85C0A942733D21E00EC5261 /* GoogleMap.storyboard */,
 			);
 			path = GoogleMap;
+			sourceTree = "<group>";
+		};
+		F86C29822755522B009F9302 /* NewScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F86C298327555275009F9302 /* NewsViewController.swift */,
+				F86C298B275552AC009F9302 /* NewsViewController.storyboard */,
+			);
+			path = NewScreen;
+			sourceTree = "<group>";
+		};
+		F8879AA3274A71B400896B64 /* RemoteConfigureManager */ = {
+			isa = PBXGroup;
+			children = (
+				F8879AA4274A721300896B64 /* RCManager.swift */,
+			);
+			path = RemoteConfigureManager;
+			sourceTree = "<group>";
+		};
+		F89E9A96275400E400E75F6F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F89E9A972754013900E75F6F /* UIViewController + Storyboard.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F8D874C426EE021D00821354 = {
@@ -130,18 +209,25 @@
 		F8D874CF26EE021D00821354 /* dzWeather */ = {
 			isa = PBXGroup;
 			children = (
-				F85C0A8C2733CEB900EC5261 /* Realm */,
+				F89E9A96275400E400E75F6F /* Extensions */,
+				F8879AA3274A71B400896B64 /* RemoteConfigureManager */,
 				F8DA8257272D4A2800A28635 /* Http */,
+				F85C0A8C2733CEB900EC5261 /* Realm */,
 				F8DA826B272D66C100A28635 /* TabBarController */,
 				F8D874E526EE0D5300821354 /* FirstScreen */,
 				F8D874E626EE0D7500821354 /* WeatherScreen */,
-				F8DA8271272D6CED00A28635 /* MapViewControllers */,
+				F83E94052740FC8400C589B8 /* HistoryScreen */,
+				F8DA8271272D6CED00A28635 /* MapScreens */,
+				F86C29822755522B009F9302 /* NewScreen */,
 				F8D874D026EE021D00821354 /* AppDelegate.swift */,
 				F8D874D226EE021D00821354 /* SceneDelegate.swift */,
 				F8D874D926EE022500821354 /* Assets.xcassets */,
 				F8D874DB26EE022500821354 /* LaunchScreen.storyboard */,
 				F8D874DE26EE022500821354 /* Info.plist */,
 				F830379927289DF100E2F28E /* DataWeather.swift */,
+				F8879A8B274A67E100896B64 /* GoogleService-Info.plist */,
+				F89E9A9B2754043400E75F6F /* SettingManager.swift */,
+				F8AF1DBB2756E53000895046 /* Mountains.mp4 */,
 			);
 			path = dzWeather;
 			sourceTree = "<group>";
@@ -150,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				F8D874D426EE021D00821354 /* FirstViewController.swift */,
+				F88DFB6A27498ACD00AE3B44 /* FirstScreen.storyboard */,
 			);
 			path = FirstScreen;
 			sourceTree = "<group>";
@@ -176,19 +263,19 @@
 		F8DA826B272D66C100A28635 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				F8DA826C272D670700A28635 /* MainTabBarController.swift */,
+				F8DA826C272D670700A28635 /* TabBarController.swift */,
 				F8D874D626EE021D00821354 /* Main.storyboard */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
 		};
-		F8DA8271272D6CED00A28635 /* MapViewControllers */ = {
+		F8DA8271272D6CED00A28635 /* MapScreens */ = {
 			isa = PBXGroup;
 			children = (
 				F85C0A8E2733D12E00EC5261 /* GoogleMap */,
-				F85C0A8D2733D11600EC5261 /* SwiftMap */,
+				F85C0A8D2733D11600EC5261 /* AppleMap */,
 			);
-			path = MapViewControllers;
+			path = MapScreens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,10 +339,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8D874EB26EE0DFC00821354 /* WeatherStoryboard.storyboard in Resources */,
+				F88DFB6E27498D2000AE3B44 /* AppleMap.storyboard in Resources */,
 				F85C0A952733D21E00EC5261 /* GoogleMap.storyboard in Resources */,
 				F8D874DD26EE022500821354 /* LaunchScreen.storyboard in Resources */,
+				F86C298C275552AC009F9302 /* NewsViewController.storyboard in Resources */,
 				F8D874DA26EE022500821354 /* Assets.xcassets in Resources */,
+				F8AF1DBC2756E53000895046 /* Mountains.mp4 in Resources */,
 				F8D874D826EE021D00821354 /* Main.storyboard in Resources */,
+				F88DFB6B27498ACD00AE3B44 /* FirstScreen.storyboard in Resources */,
+				F8879A8C274A67E100896B64 /* GoogleService-Info.plist in Resources */,
+				F83E94112740FE2B00C589B8 /* HistoryTableViewCell.xib in Resources */,
+				F83E94082740FD6200C589B8 /* History.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,12 +421,18 @@
 			files = (
 				F81E740B2733204700553EF9 /* RealmDataWeather.swift in Sources */,
 				F8DA825C272D4A8F00A28635 /* ParseManager.swift in Sources */,
+				F89E9A982754013900E75F6F /* UIViewController + Storyboard.swift in Sources */,
 				F8D874D526EE021D00821354 /* FirstViewController.swift in Sources */,
+				F83E9418274100E700C589B8 /* HistoryViewController.swift in Sources */,
 				F81E740827331F6700553EF9 /* RealmManager.swift in Sources */,
 				F830379A27289DF100E2F28E /* DataWeather.swift in Sources */,
-				F8DA8273272D6D2B00A28635 /* SwiftMapViewController.swift in Sources */,
-				F8DA826D272D670700A28635 /* MainTabBarController.swift in Sources */,
+				F86C298427555276009F9302 /* NewsViewController.swift in Sources */,
+				F8DA8273272D6D2B00A28635 /* AppleMapViewController.swift in Sources */,
+				F89E9A9C2754043400E75F6F /* SettingManager.swift in Sources */,
+				F8DA826D272D670700A28635 /* TabBarController.swift in Sources */,
 				F8D874E826EE0DCC00821354 /* WeatherViewController.swift in Sources */,
+				F83E941C2741023F00C589B8 /* HistoryTableViewCell.swift in Sources */,
+				F8879AA5274A721300896B64 /* RCManager.swift in Sources */,
 				F85C0A922733D20200EC5261 /* GoogleMapViewController.swift in Sources */,
 				F8DA8268272D508800A28635 /* APIConstants.swift in Sources */,
 				F8DA8259272D4A7100A28635 /* HttpManager.swift in Sources */,

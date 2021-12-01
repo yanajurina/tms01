@@ -8,6 +8,8 @@
 import UIKit
 import AlamofireNetworkActivityLogger
 import GoogleMaps
+import Firebase
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: ["5days"])
+        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { result, error in
+            guard result else { return }
+            let content = UNMutableNotificationContent()
+            content.title = "Hello!"
+            content.badge = 1
+            content.sound = UNNotificationSound.default
+            content.body = "Friend, you haven't come to us for 5 days! See what's new!"
+            content.userInfo = ["current_vc": "WeatherStoryboard"]
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5000000.0, repeats: true)
+            let request = UNNotificationRequest(identifier: "5days", content: content, trigger: trigger)
+            notificationCenter.add(request) { error_ in
+                print(error_?.localizedDescription ?? "")
+            }
+        }
         NetworkActivityLogger.shared.startLogging()
         GMSServices.provideAPIKey("AIzaSyAi692TiFbyyGUL1zsHHdvSYszVo-2-klE")
+        FirebaseApp.configure()
 
         return true
     }

@@ -1,46 +1,67 @@
 //
-//  ViewController.swift
+//  FirstViewController.swift
 //  dzWeather
 //
 //  Created by Янина on 12.09.21.
 //
 
 import UIKit
-import NVActivityIndicatorView
+import CoreLocation
 
 class FirstViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var cityTextField: UITextField!
     
+    
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        UIApplication.shared.applicationIconBadgeNumber = 0
         
         cityTextField.delegate = self
-        
-        let activity = NVActivityIndicatorView(frame: CGRect(x: 170, y: 280, width: 50, height: 50), type: .orbit, color: .lightGray, padding: 0)
-        self.view.addSubview(activity)
-        activity.startAnimating()
     
-        setupNotification()
+        guard let newVC = SettingManager.shared.pushNewVC,
+              let presentVC = UIViewController.getViewController(by: newVC) else { return }
+        switch locationManager.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse:
+            presentVC.modalPresentationStyle = .currentContext
+            presentVC.modalTransitionStyle = .crossDissolve
+            present(presentVC, animated: true, completion: nil)
+        case .notDetermined:
+            locationManager.requestAlwaysAuthorization()
+        case .denied, .restricted:
+            showAlertForUseLocation()
+        default: break
+        }
     }
     
-    func setupNotification() {
-        UIApplication.shared.applicationIconBadgeNumber = 0
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { result, error in
-            guard result else { return }
-            let content = UNMutableNotificationContent()
-            content.title = "Hello!"
-            content.badge = 1
-            content.sound = UNNotificationSound.default
-            content.body = "Friend, you have not come to us for 5 days! See what's new!"
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 432000.0, repeats: true)
-            let request = UNNotificationRequest(identifier: "5days", content: content, trigger: trigger)
-            notificationCenter.add(request) { error_ in
-                print(error_?.localizedDescription ?? "")
+//    func setupLocation() {
+//        switch locationManager.authorizationStatus {
+//        case .notDetermined:
+//            locationManager.requestAlwaysAuthorization()
+//        case .denied, .restricted:
+//            showAlertForUseLocation()
+//        default: break
+//        }
+//    }
+    
+    func showAlertForUseLocation() {
+        let alert = UIAlertController(title: nil, message: "Allow use location in app settings", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let setting = UIAlertAction(title: "Settings", style: .default) { _ in
+            guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
+        
+        alert.addAction(cancel)
+        alert.addAction(setting)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -48,32 +69,24 @@ class FirstViewController: UIViewController, UITextFieldDelegate{
         return true
     }
     
-    func getViewController() -> UIViewController {
-        let storyboard = UIStoryboard.init(name: "WeatherStoryboard", bundle: nil)
-        let vc = storyboard.instantiateInitialViewController()
-        return vc!
-    }
-    
     @IBAction func goButton(_ sender: UIButton) {
         guard let textField = cityTextField.text, !textField.isEmpty else { return }
         let storyboard = UIStoryboard.init(name: "WeatherStoryboard", bundle: nil)
         if let vc = storyboard.instantiateInitialViewController() as? WeatherViewController {
-            vc.cityName = "\(cityTextField.text ?? "")"
+            vc.cityName = textField
+            vc.modalPresentationStyle = .currentContext
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: true, completion: nil)
         }
-        let vc = getViewController()
-        vc.modalPresentationStyle = .currentContext
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true, completion: nil)
     }
-//        let storyboard = UIStoryboard.init(name: "GoogleMap", bundle: nil)
-//        guard let vc = storyboard.instantiateInitialViewController() as? GoogleMapViewController else {return}
-//        vc.modalPresentationStyle = .currentContext
-//        vc.modalTransitionStyle = .crossDissolve
-//        present(vc, animated: true, completion: nil)
-//    }
-        
-}
-extension FirstViewController: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    
+    @IBAction func goToHistoryButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard.init(name: "History", bundle: nil)
+        if let vc = storyboard.instantiateInitialViewController() as? HistoryViewController {
+            vc.modalPresentationStyle = .currentContext
+            vc.modalTransitionStyle = .crossDissolve
+          
+            present(vc, animated: true, completion: nil)
+        }
     }
 }

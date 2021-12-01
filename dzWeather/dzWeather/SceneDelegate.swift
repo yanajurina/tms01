@@ -13,8 +13,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        if let notification = connectionOptions.notificationResponse {
+            if let newVC = notification.notification.request.content.userInfo["current_vc"] as? String {
+                SettingManager.shared.pushNewVC = newVC
+            }
+        }
     
-        guard let _ = (scene as? UIWindowScene) else { return }
+//        guard let _ = (scene as? UIWindowScene) else { return }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

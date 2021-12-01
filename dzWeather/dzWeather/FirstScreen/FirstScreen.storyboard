@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wpf-ay-Jym">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="v6S-57-UCZ">
+            <objects>
+                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wpf-ay-Jym" customClass="FirstViewController" customModule="dzWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q4f-FE-X7r">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="MAR-9a-pqE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Oi-pF-Rfc">
+                                <rect key="frame" x="20" y="64" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Evo-TG-8k4"/>
+                                    <constraint firstAttribute="width" constant="50" id="scH-AA-dPU"/>
+                                </constraints>
+                                <state key="normal" title="History">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToHistoryButton:" destination="wpf-ay-Jym" eventType="touchUpInside" id="yRF-9O-ajk"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter city name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJR-8a-SsG">
+                                <rect key="frame" x="20" y="428" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6QU-zh-0P5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFA-JV-lZi">
+                                <rect key="frame" x="157" y="478" width="100" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="26H-sr-H2x"/>
+                                    <constraint firstAttribute="height" constant="60" id="xUJ-N4-y3x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Go">
+                                    <color key="titleColor" systemColor="systemGray6Color"/>
+                                </state>
+                                <connections>
+                                    <action selector="goButton:" destination="wpf-ay-Jym" eventType="touchUpInside" id="Qoy-9T-BTp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3Y0-73-s7R"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MAR-9a-pqE" firstAttribute="leading" secondItem="q4f-FE-X7r" secondAttribute="leading" id="EYS-2u-7ZZ"/>
+                            <constraint firstItem="1Oi-pF-Rfc" firstAttribute="leading" secondItem="3Y0-73-s7R" secondAttribute="leading" constant="20" id="Xf9-fY-kcO"/>
+                            <constraint firstItem="TFA-JV-lZi" firstAttribute="centerX" secondItem="q4f-FE-X7r" secondAttribute="centerX" id="a9H-j8-Wwf"/>
+                            <constraint firstItem="3Y0-73-s7R" firstAttribute="trailing" secondItem="OJR-8a-SsG" secondAttribute="trailing" constant="20" id="bhW-NX-dyJ"/>
+                            <constraint firstItem="TFA-JV-lZi" firstAttribute="top" secondItem="OJR-8a-SsG" secondAttribute="bottom" constant="10" id="fgi-zO-5Ac"/>
+                            <constraint firstItem="MAR-9a-pqE" firstAttribute="top" secondItem="q4f-FE-X7r" secondAttribute="top" id="fuP-Lq-ZwI"/>
+                            <constraint firstAttribute="trailing" secondItem="MAR-9a-pqE" secondAttribute="trailing" id="jpX-SF-w8i"/>
+                            <constraint firstItem="OJR-8a-SsG" firstAttribute="leading" secondItem="3Y0-73-s7R" secondAttribute="leading" constant="20" id="lgk-nq-4jf"/>
+                            <constraint firstItem="1Oi-pF-Rfc" firstAttribute="top" secondItem="3Y0-73-s7R" secondAttribute="top" constant="20" id="rjh-nR-SPg"/>
+                            <constraint firstAttribute="bottom" secondItem="MAR-9a-pqE" secondAttribute="bottom" id="v8D-8G-aCt"/>
+                            <constraint firstItem="OJR-8a-SsG" firstAttribute="centerY" secondItem="q4f-FE-X7r" secondAttribute="centerY" id="yvy-Og-Lvv"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="Xdc-pf-mWo">
+                        <color key="badgeColor" red="1" green="0.82552601390000002" blue="0.83359754379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="cityTextField" destination="OJR-8a-SsG" id="mvr-SS-b0A"/>
+                        <outlet property="image" destination="MAR-9a-pqE" id="4cw-qg-Qf4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GXy-fU-Ezm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-984" y="-654"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1" width="382" height="680"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
