@@ -51,7 +51,7 @@ class GameViewController: UIViewController, ViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         setupLanguage()
         
         imageView.contentMode = .scaleAspectFill
@@ -63,50 +63,51 @@ class GameViewController: UIViewController, ViewControllerDelegate {
         
         let fileURL = documentDirectory.appendingPathComponent(KeysUserDefaults.saveSellAndChecker.rawValue)
         let fileURL2 = documentDirectory.appendingPathComponent(KeysUserDefaults.saveCurrentCheker.rawValue)
-//        let fileURL3 = documentDirectory.appendingPathComponent(KeysUserDefaults.backgroundImage.rawValue)
+        //        let fileURL3 = documentDirectory.appendingPathComponent(KeysUserDefaults.backgroundImage.rawValue)
         let fileURL4 = documentDirectory.appendingPathComponent(KeysUserDefaults.savePlayerNames.rawValue)
         if FileManager().fileExists(atPath: fileURL.path) {
             presentAlertController("Сontinue the game?", message: "", useTextField: false, preferredStyle: .alert, actions: UIAlertAction(title: "Yes", style: .default, handler: { _ in
-            self.getBackgroundGame()
-            self.getStyleOfChekers()
-            self.getPlayerNames()
-            self.getDataGame()
-            self.getCurrentDirection()
-            self.setTimerFromUserDefaults()
-            self.createSaveChessboard()
-            self.writeNames()
-            self.saveCellAndChecker.removeAll()
-            try? FileManager.default.removeItem(at: fileURL)
-            try? FileManager.default.removeItem(at: fileURL2)
-//            try? FileManager.default.removeItem(at: fileURL3)
-            try? FileManager.default.removeItem(at: fileURL4)
-//            do {
-//                let fileURL = self.documentDirectory.appendingPathComponent(KeysUserDefaults.saveSellAndChecker.rawValue)
-//                try FileManager.default.removeItem(at: fileURL)
-//            } catch {
-//                print()
-//            }
-            self.initTimer()
-            self.saveCellAndChecker.removeAll()
-            self.saveCurrentChecker.removeAll()
-            self.gameImage.removeAll()
-        }),
-        UIAlertAction(title: "No", style: .cancel, handler: { _ in
-            self.modalTransitionStyle = .crossDissolve
-            guard let vc = self.getViewController(from: "PlayerNames") as? PlayerNamesViewController else { return }
-            vc.currentLanguage = self.currentLanguage
-            vc.delegate = self
-            self.present(vc, animated: true, completion: nil)
-            self.getBackgroundGame()
-            self.getStyleOfChekers()
-            self.getPlayerNames()
-            self.getDataGame()
-            self.removeTimerFromUserDefaults()
-            self.createChessboard()
-            self.writeNames()
-            self.initTimer()
-            try? FileManager.default.removeItem(at: fileURL)
-        }))
+                self.getBackgroundGame()
+                self.getStyleOfChekers()
+                self.getPlayerNames()
+                self.getDataGame()
+                self.getCurrentDirection()
+                self.setTimerFromUserDefaults()
+                self.createSaveChessboard()
+                self.findFight()
+                self.writeNames()
+                self.saveCellAndChecker.removeAll()
+                try? FileManager.default.removeItem(at: fileURL)
+                try? FileManager.default.removeItem(at: fileURL2)
+                //            try? FileManager.default.removeItem(at: fileURL3)
+                try? FileManager.default.removeItem(at: fileURL4)
+                //            do {
+                //                let fileURL = self.documentDirectory.appendingPathComponent(KeysUserDefaults.saveSellAndChecker.rawValue)
+                //                try FileManager.default.removeItem(at: fileURL)
+                //            } catch {
+                //                print()
+                //            }
+                self.initTimer()
+                self.saveCellAndChecker.removeAll()
+                self.saveCurrentChecker.removeAll()
+                self.gameImage.removeAll()
+            }),
+            UIAlertAction(title: "No", style: .cancel, handler: { _ in
+                self.modalTransitionStyle = .crossDissolve
+                guard let vc = self.getViewController(from: "PlayerNames") as? PlayerNamesViewController else { return }
+                vc.currentLanguage = self.currentLanguage
+                vc.delegate = self
+                self.present(vc, animated: true, completion: nil)
+                self.getBackgroundGame()
+                self.getStyleOfChekers()
+                self.getPlayerNames()
+                self.getDataGame()
+                self.removeTimerFromUserDefaults()
+                self.createChessboard()
+                self.writeNames()
+                self.initTimer()
+                try? FileManager.default.removeItem(at: fileURL)
+            }))
         } else {
             self.getBackgroundGame()
             self.getStyleOfChekers()
@@ -117,20 +118,20 @@ class GameViewController: UIViewController, ViewControllerDelegate {
             present(vc, animated: true, completion: nil)
             createChessboard()
         }
-       
+        
         let textTimerLabel = "\(countMin):\(countSec)"
         let attributTextTimerLabel = NSMutableAttributedString(string: "\(textTimerLabel)", attributes: [
-                                                                                            .font: UIFont(name: "Anton-Regular", size: 40)
-                                                                                            ?? UIFont.systemFont(ofSize: 20.0),
-                                                                                            .foregroundColor: UIColor.orange])
+                                                                .font: UIFont(name: "Anton-Regular", size: 40)
+                                                                    ?? UIFont.systemFont(ofSize: 20.0),
+                                                                .foregroundColor: UIColor.orange])
         var attributes: [NSMutableAttributedString.Key: Any] = [.font: UIFont(name: "Anton-Regular", size: 40)
-                                                                ?? UIFont.systemFont(ofSize: 20.0),
+                                                                    ?? UIFont.systemFont(ofSize: 20.0),
                                                                 .foregroundColor: UIColor.orange]
         let attributesStop = NSMutableAttributedString(string: "Stop")
         attributes[.font] = UIFont(name: "Anton-Regular", size: 30)
         attributes[.foregroundColor] = UIColor.orange
         attributesStop.addAttributes(attributes, range: NSRange(location: 0, length: 4))
-    
+        
         timerLabel.attributedText = attributTextTimerLabel
         buttonStop.setAttributedTitle(attributesStop, for: .normal)
         buttonStop.layer.cornerRadius = buttonStop.frame.size.width / 4
@@ -323,7 +324,7 @@ class GameViewController: UIViewController, ViewControllerDelegate {
         let fileURL = documentDirectory.appendingPathComponent(KeysUserDefaults.backgroundImage.rawValue)
         guard let data = FileManager.default.contents(atPath: fileURL.absoluteString.replacingOccurrences(of: "file://", with: "")),
               let object = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [SaveGame] else { return }
-    
+        
         for value in object {
             imageView.image = image ?? value.backgroundImage
         }
@@ -356,12 +357,12 @@ class GameViewController: UIViewController, ViewControllerDelegate {
         userDefaults.setValue(countSec, forKey: KeysUserDefaults.timerSec.rawValue)
         userDefaults.setValue(countMin, forKey: KeysUserDefaults.timerMin.rawValue)
     }
-
+    
     func removeTimerFromUserDefaults() {
         userDefaults.removeObject(forKey: KeysUserDefaults.timerSec.rawValue)
         userDefaults.removeObject(forKey: KeysUserDefaults.timerMin.rawValue)
     }
-
+    
     func setTimerFromUserDefaults() {
         self.countSec = userDefaults.integer(forKey: KeysUserDefaults.timerSec.rawValue)
         self.countMin = userDefaults.integer(forKey: KeysUserDefaults.timerMin.rawValue)
@@ -417,38 +418,43 @@ class GameViewController: UIViewController, ViewControllerDelegate {
         var checkerForFight: Checkers? = nil //шашка которую бьем
         var fight: Bool = false
         
-            arrayOfChecker.forEach { checker in
-                if checker.colorTag >= 12, checker.ladyStyle == false {
-                    startCell = checker.positionTag
-                    fight = true
+        arrayOfChecker.forEach { checker in
+            if checker.colorTag >= 12, checker.ladyStyle == false {
+                
+                startCell = checker.positionTag
+                fight = true
+            } else {
+                if checker.colorTag >= 12, checker.ladyStyle == true {
+                    findFightForWhiteLady(ladyChecker: checker, arrayOfChecker: arrayOfChecker)
                 }
-                var noRepeat: Int? = nil
-                while fight {
-                    fight = false
-                    arrayOfChecker.forEach { fightChecker in
-                        
-                        guard let startCell1 = startCell else { return }
-                        
-                        if fightChecker.colorTag < 12, fightChecker.positionTag != noRepeat && (fightChecker.positionTag == startCell1 + 9 || fightChecker.positionTag == startCell1 + 7 || fightChecker.positionTag == startCell1 - 9 || fightChecker.positionTag == startCell1 - 7 ) {
-                            fight = false
-                            checkerForFight = fightChecker
-                            board.subviews.forEach { cell in
-                                guard let checkerForFight = checkerForFight else { return }
-                                if cell.subviews.isEmpty, cell.backgroundColor == .black, cell.tag == startCell1 - 2 * (startCell1 - fightChecker.positionTag) {
-//                                        cell.addBorder(with: .red, borderWidth: 2, cornerRadius: 0)
-                                    fight = true
-                                    arrayCells.append(cell)
-                                    canFight = true
-                                    arrayIfCanFight.append((checker: checker.colorTag, cell: cell.tag, checkerBeaten: checkerForFight.colorTag))
-//                                        print(mass)
-                                    noRepeat = checkerForFight.positionTag
-                                    startCell = cell.tag
-                                }
+            }
+            var noRepeat: Int? = nil
+            while fight {
+                fight = false
+                arrayOfChecker.forEach { fightChecker in
+                    
+                    guard let startCell1 = startCell else { return }
+                    
+                    if fightChecker.colorTag < 12, fightChecker.positionTag != noRepeat && (fightChecker.positionTag == startCell1 + 9 || fightChecker.positionTag == startCell1 + 7 || fightChecker.positionTag == startCell1 - 9 || fightChecker.positionTag == startCell1 - 7 ) {
+                        fight = false
+                        checkerForFight = fightChecker
+                        board.subviews.forEach { cell in
+                            guard let checkerForFight = checkerForFight else { return }
+                            if cell.subviews.isEmpty, cell.backgroundColor == .black, cell.tag == startCell1 - 2 * (startCell1 - fightChecker.positionTag) {
+                                cell.addBorder(with: .red, borderWidth: 3, cornerRadius: 0)
+                                fight = true
+                                arrayCells.append(cell)
+                                canFight = true
+                                arrayIfCanFight.append((checker: checker.colorTag, cell: cell.tag, checkerBeaten: checkerForFight.colorTag))
+                                //                                        print(mass)
+                                noRepeat = checkerForFight.positionTag
+                                startCell = cell.tag
                             }
                         }
                     }
                 }
-//                print(mass)
+            }
+            //                print(mass)
         }
     }
     
@@ -457,44 +463,48 @@ class GameViewController: UIViewController, ViewControllerDelegate {
         var checkerForFight: Checkers? = nil //шашка которую бьем
         var fight: Bool = false
         
-            arrayOfChecker.forEach { checker in
-                
-                if checker.colorTag < 12, checker.ladyStyle == false {
+        arrayOfChecker.forEach { checker in
+            
+            if checker.colorTag < 12, checker.ladyStyle == false {
                     startCell = checker.positionTag
                     fight = true
+            } else {
+                if checker.colorTag < 12, checker.ladyStyle == true {
+                    findFightForBlackLady(ladyChecker: checker, arrayOfChecker: arrayOfChecker)
                 }
-                var noRepeat: Int? = nil
-                while fight {
-                    fight = false
-                    arrayOfChecker.forEach { fightChecker in
+            }
+            var noRepeat: Int? = nil
+            while fight {
+                fight = false
+                arrayOfChecker.forEach { fightChecker in
+                    
+                    guard let startCell1 = startCell else { return }
+                    
+                    if fightChecker.colorTag >= 12, fightChecker.positionTag != noRepeat && (fightChecker.positionTag == startCell1 + 9 || fightChecker.positionTag == startCell1 + 7 || fightChecker.positionTag == startCell1 - 9 || fightChecker.positionTag == startCell1 - 7 ) {
                         
-                        guard let startCell1 = startCell else { return }
-                        
-                        if fightChecker.colorTag >= 12, fightChecker.positionTag != noRepeat && (fightChecker.positionTag == startCell1 + 9 || fightChecker.positionTag == startCell1 + 7 || fightChecker.positionTag == startCell1 - 9 || fightChecker.positionTag == startCell1 - 7 ) {
+                        fight = false
+                        checkerForFight = fightChecker
+                        board.subviews.forEach { cell in
                             
-                            fight = false
-                            checkerForFight = fightChecker
-                            board.subviews.forEach { cell in
+                            guard let checkerForFight = checkerForFight else { return }
+                            if cell.subviews.isEmpty, cell.backgroundColor == .black, cell.tag == startCell1 - 2 * (startCell1 - fightChecker.positionTag) {
                                 
-                                guard let checkerForFight = checkerForFight else { return }
-                                if cell.subviews.isEmpty, cell.backgroundColor == .black, cell.tag == startCell1 - 2 * (startCell1 - fightChecker.positionTag) {
-
-//                                    cell.addBorder(with: .red, borderWidth: 2, cornerRadius: 0)
-                                    fight = true
-                                    arrayCells.append(cell)
-                                    canFight = true
-
-                                    arrayIfCanFight.append((checker: checker.colorTag, cell: cell.tag, checkerBeaten: checkerForFight.colorTag))
-        
-                                    noRepeat = checkerForFight.positionTag
-
-                                    startCell = cell.tag
-                                }
+                                cell.addBorder(with: .red, borderWidth: 3, cornerRadius: 0)
+                                fight = true
+                                arrayCells.append(cell)
+                                canFight = true
+                                
+                                arrayIfCanFight.append((checker: checker.colorTag, cell: cell.tag, checkerBeaten: checkerForFight.colorTag))
+                                
+                                noRepeat = checkerForFight.positionTag
+                                
+                                startCell = cell.tag
                             }
                         }
                     }
                 }
             }
+        }
     }
     
     func checkerIsLady() {
@@ -507,7 +517,7 @@ class GameViewController: UIViewController, ViewControllerDelegate {
                 number = checker.positionTag
             }
         }
-                
+        
         if let cell = board.subviews.first(where:{$0.tag == number}) {
             cell.subviews.forEach { checker in
                 let tiaraImage = UIImageView(frame: CGRect(x: 0, y: 0, width: Int(checker.frame.width), height: Int(checker.frame.height)))
@@ -519,7 +529,7 @@ class GameViewController: UIViewController, ViewControllerDelegate {
     
     func saveArrayChekers() -> [Checkers] {
         arrayChekers = []
-
+        
         board.subviews.forEach { cell in
             if !cell.subviews.isEmpty {
                 cell.subviews.forEach { checker in
@@ -533,7 +543,7 @@ class GameViewController: UIViewController, ViewControllerDelegate {
                 }
             }
         }
-       return arrayChekers
+        return arrayChekers
     }
     
     func moveChekers( checker: UIView) {
@@ -584,28 +594,178 @@ class GameViewController: UIViewController, ViewControllerDelegate {
             }
         }
     }
+    
+    func findFightForWhiteLady(ladyChecker: Checkers, arrayOfChecker: [Checkers]) {
+        
+        //var massForLady: [(lady: Int, checkerForFight: Int, cell: Int)] = []
+        
+        var a = ladyChecker.positionTag - 9
+        var b = ladyChecker.positionTag - 7
+        var c = ladyChecker.positionTag + 7
+        var d = ladyChecker.positionTag + 9
+        var noRepeatA: Bool = true
+        var noRepeatB: Bool = true
+        var noRepeatC: Bool = true
+        var noRepeatD: Bool = true
+        
+        while a > 0 || b > 0 || c < 63 || d < 63 {
+            
+            arrayOfChecker.forEach { checkerForFight in
+                if checkerForFight.colorTag < 12  && (checkerForFight.positionTag == a || checkerForFight.positionTag == b || checkerForFight.positionTag == c || checkerForFight.positionTag == d) {
+                    var step: Int = 0
+                    if (ladyChecker.positionTag - checkerForFight.positionTag) < 0, noRepeatB == true, (ladyChecker.positionTag - checkerForFight.positionTag) % 7 == 0 {
+                        step = -7
+                        noRepeatB = false
+                    }
+                    if (ladyChecker.positionTag - checkerForFight.positionTag) > 0, noRepeatC == true, (ladyChecker.positionTag - checkerForFight.positionTag) % 7 == 0 {
+                        step = 7
+                        noRepeatC = false
+                    }
+                    if (ladyChecker.positionTag - checkerForFight.positionTag) < 0, noRepeatA == true, (ladyChecker.positionTag - checkerForFight.positionTag) % 9 == 0 {
+                        step = -9
+                        noRepeatA = false
+                    }
+                    if (ladyChecker.positionTag - checkerForFight.positionTag) > 0, noRepeatD == true, (ladyChecker.positionTag - checkerForFight.positionTag) % 9 == 0 {
+                        step = 9
+                        noRepeatD = false
+                    }
+                    
+                    board.subviews.forEach { cell in
+                        
+                        if cell.subviews.isEmpty, cell.backgroundColor == .black, cell.tag == checkerForFight.positionTag - step {
+                            
+                            
+                            arrayCells.append(cell)
+                            canFight = true
+                            arrayIfCanFight.append((checker: ladyChecker.colorTag, cell: cell.tag, checkerBeaten: checkerForFight.colorTag))
+                            //                            massForLady.append((lady: ladyChecker.colorTag!, checkerForFight: checkerForFight.colorTag!, cell: cell.tag))
+                            
+                            var nextCell: Int = cell.tag - step
+                            
+                            while nextCell > -1, nextCell < 64 {
+                                var findNextCell: Bool = false
+                                board.subviews.forEach { cell in
+                                    if cell.tag == nextCell, cell.subviews.isEmpty, cell.backgroundColor == .black {
+                                        cell.addBorder(with: .red, borderWidth: 3, cornerRadius: 0)
+                                        arrayCells.append(cell)
+                                        arrayIfCanFight.append((checker: ladyChecker.colorTag, cell: cell.tag, checkerBeaten: checkerForFight.colorTag))
+                                        //                                        massForLady.append((lady: ladyChecker.colorTag!, checkerForFight: checkerForFight.colorTag!, cell: cell.tag))
+                                        findNextCell = true
+                                        nextCell = nextCell - step
+                                    }
+                                }
+                                if findNextCell == false {
+                                    nextCell = 65
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            a -= 9
+            b -= 7
+            c += 7
+            d += 9
+        }
+    }
+    
+    func findFightForBlackLady(ladyChecker: Checkers, arrayOfChecker: [Checkers]) {
+        
+        //var massForLady: [(lady: Int, checkerForFight: Int, cell: Int)] = []
+        
+        var a = ladyChecker.positionTag - 9
+        var b = ladyChecker.positionTag - 7
+        var c = ladyChecker.positionTag + 7
+        var d = ladyChecker.positionTag + 9
+        var noRepeatA: Bool = true
+        var noRepeatB: Bool = true
+        var noRepeatC: Bool = true
+        var noRepeatD: Bool = true
+        
+        while a > 0 || b > 0 || c < 63 || d < 63 {
+            
+            arrayOfChecker.forEach { checkerForFight in
+                if checkerForFight.colorTag >= 12  && (checkerForFight.positionTag == a || checkerForFight.positionTag == b || checkerForFight.positionTag == c || checkerForFight.positionTag == d) {
+                    
+                    var step: Int = 0
+                    if (ladyChecker.positionTag - checkerForFight.positionTag) < 0, noRepeatB == true, (ladyChecker.positionTag - checkerForFight.positionTag) % 7 == 0 {
+                        step = -7
+                        noRepeatB = false
+                    }
+                    if (ladyChecker.positionTag - checkerForFight.positionTag) > 0, noRepeatC == true, (ladyChecker.positionTag - checkerForFight.positionTag) % 7 == 0 {
+                        step = 7
+                        noRepeatC = false
+                    }
+                    if (ladyChecker.positionTag - checkerForFight.positionTag) < 0, noRepeatA == true, (ladyChecker.positionTag - checkerForFight.positionTag) % 9 == 0 {
+                        step = -9
+                        noRepeatA = false
+                    }
+                    if (ladyChecker.positionTag - checkerForFight.positionTag) > 0, noRepeatD == true, (ladyChecker.positionTag - checkerForFight.positionTag) % 9 == 0 {
+                        step = 9
+                        noRepeatD = false
+                    }
+                    
+                    board.subviews.forEach { cell in
+                        
+                        if cell.subviews.isEmpty, cell.backgroundColor == .black, cell.tag == checkerForFight.positionTag - step {
+                            
+                            arrayCells.append(cell)
+                            canFight = true
+                            arrayIfCanFight.append((checker: ladyChecker.colorTag, cell: cell.tag, checkerBeaten: checkerForFight.colorTag))
+//                            massForLady.append((lady: ladyChecker.colorTag, checkerForFight: checkerForFight.colorTag, cell: cell.tag))
+                            
+                            var nextCell: Int = cell.tag - step
+                            
+                            while nextCell > -1, nextCell < 64 {
+                                var findNextCell: Bool = false
+                                board.subviews.forEach { cell in
+                                    if cell.tag == nextCell, cell.subviews.isEmpty, cell.backgroundColor == .black {
+                                        cell.addBorder(with: .red, borderWidth: 3, cornerRadius: 0)
+                                        arrayCells.append(cell)
+                                        arrayIfCanFight.append((checker: ladyChecker.colorTag, cell: cell.tag, checkerBeaten: checkerForFight.colorTag))
+//                                        massForLady.append((lady: ladyChecker.colorTag!, checkerForFight: checkerForFight.colorTag!, cell: cell.tag))
+                                        findNextCell = true
+                                        nextCell = nextCell - step
+                                    }
+                                }
+                                if findNextCell == false {
+                                    nextCell = 65
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            a -= 9
+            b -= 7
+            c += 7
+            d += 9
+        }
+    }
+    
     func win() {
         
         let winnerPlayer = winner()
-
+        
         if winnerPlayer != "" {
             self.view.bringSubviewToFront(winLabel)
             self.view.bringSubviewToFront(winnerLabel)
-        
+            
             timer?.invalidate()
             timer = nil
             
             //winLabel.text = "congratulationsLabel_text".localized
             winLabel.textColor = .green
             winnerLabel.textColor = .green
-        
+            
             UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut) {
                 self.winLabel.center.y += self.view.bounds.height
             }
             //winnerLabel.text = winner + "winnerLabel_text".localized
             winnerLabel.text = "\(winnerPlayer), you have won!"
             CoreDataManager.shared.addNewResults(by: ResultsModel(data_m: dateLabel.text, winner_m: "\(winnerPlayer)", playerWhite_m: playerWhite, playerBlack_m: playerBlack))
-
+            
             UIView.animate(withDuration: 2, delay: 0.3, options: .curveEaseOut) {
                 self.winnerLabel.center.y += self.view.bounds.height
             }
@@ -628,24 +788,24 @@ class GameViewController: UIViewController, ViewControllerDelegate {
         
         if whiteCheckers == 0 {
             winner = playerWhite
-//            let player1 = Player(name: playerWithWhiteChecker, colorOfChecker: "white", winner: false)
-//            let player2 = Player(name: playerWithBlackChecker, colorOfChecker: "black", winner: true)
-//            players.append(player1)
-//            players.append(player2)
-//            let coreDataDate = dateFormater.date(from: dateLabel.text ?? "")
-//            let play = Play(dateOfPlay: coreDataDate ?? Date(), players: players)
-//            CoreDataManager.shared.savePlay(by: play)
+            //            let player1 = Player(name: playerWithWhiteChecker, colorOfChecker: "white", winner: false)
+            //            let player2 = Player(name: playerWithBlackChecker, colorOfChecker: "black", winner: true)
+            //            players.append(player1)
+            //            players.append(player2)
+            //            let coreDataDate = dateFormater.date(from: dateLabel.text ?? "")
+            //            let play = Play(dateOfPlay: coreDataDate ?? Date(), players: players)
+            //            CoreDataManager.shared.savePlay(by: play)
         }
         
         if blackCheckers == 0 {
             winner = playerBlack
-//            let player1 = Player(name: playerWithWhiteChecker, colorOfChecker: "white", winner: true)
-//            let player2 = Player(name: playerWithBlackChecker, colorOfChecker: "black", winner: false)
-//            players.append(player1)
-//            players.append(player2)
-//            let coreDataDate = dateFormater.date(from: dateLabel.text ?? "")
-//            let play = Play(dateOfPlay: coreDataDate ?? Date(), players: players)
-//            CoreDataManager.shared.savePlay(by: play)
+            //            let player1 = Player(name: playerWithWhiteChecker, colorOfChecker: "white", winner: true)
+            //            let player2 = Player(name: playerWithBlackChecker, colorOfChecker: "black", winner: false)
+            //            players.append(player1)
+            //            players.append(player2)
+            //            let coreDataDate = dateFormater.date(from: dateLabel.text ?? "")
+            //            let play = Play(dateOfPlay: coreDataDate ?? Date(), players: players)
+            //            CoreDataManager.shared.savePlay(by: play)
         }
         
         if winner == "" {
@@ -677,24 +837,24 @@ class GameViewController: UIViewController, ViewControllerDelegate {
         
         if allWhiteCheckers.isEmpty, currentDirection == .white {
             winner = playerBlack
-//            let player1 = Player(name: playerWithWhiteChecker, colorOfChecker: "white", winner: false)
-//            let player2 = Player(name: playerWithBlackChecker, colorOfChecker: "black", winner: true)
-//            players.append(player1)
-//            players.append(player2)
-//            let coreDataDate = dateFormater.date(from: dateLabel.text ?? "")
-//            let play = Play(dateOfPlay: coreDataDate ?? Date(), players: players)
-//            CoreDataManager.shared.savePlay(by: play)
+            //            let player1 = Player(name: playerWithWhiteChecker, colorOfChecker: "white", winner: false)
+            //            let player2 = Player(name: playerWithBlackChecker, colorOfChecker: "black", winner: true)
+            //            players.append(player1)
+            //            players.append(player2)
+            //            let coreDataDate = dateFormater.date(from: dateLabel.text ?? "")
+            //            let play = Play(dateOfPlay: coreDataDate ?? Date(), players: players)
+            //            CoreDataManager.shared.savePlay(by: play)
         }
         
         if allBlackCheckers.isEmpty, currentDirection == .black {
             winner = playerWhite
-//            let player1 = Player(name: playerWithWhiteChecker, colorOfChecker: "white", winner: true)
-//            let player2 = Player(name: playerWithBlackChecker, colorOfChecker: "black", winner: false)
-//            players.append(player1)
-//            players.append(player2)
-//            let coreDataDate = dateFormater.date(from: dateLabel.text ?? "")
-//            let play = Play(dateOfPlay: coreDataDate ?? Date(), players: players)
-//            CoreDataManager.shared.savePlay(by: play)
+            //            let player1 = Player(name: playerWithWhiteChecker, colorOfChecker: "white", winner: true)
+            //            let player2 = Player(name: playerWithBlackChecker, colorOfChecker: "black", winner: false)
+            //            players.append(player1)
+            //            players.append(player2)
+            //            let coreDataDate = dateFormater.date(from: dateLabel.text ?? "")
+            //            let play = Play(dateOfPlay: coreDataDate ?? Date(), players: players)
+            //            CoreDataManager.shared.savePlay(by: play)
         }
         return winner
     }
@@ -716,14 +876,14 @@ class GameViewController: UIViewController, ViewControllerDelegate {
         switch sender.state {
         case .began:
             smartBorder(for: checker)
-                
+            
             if canFight == false {
                 arrayCells.removeAll()
                 moveChekers(checker: checker)
             }
             UIImageView.animate(withDuration: 0.3) {
                 checker.transform = checker.transform.scaledBy(x: 1.3, y: 1.3)
-                }
+            }
         case .ended:
             UIImageView.animate(withDuration: 0.3) {
                 checker.transform = .identity
@@ -740,12 +900,22 @@ class GameViewController: UIViewController, ViewControllerDelegate {
             
             arrayCells.forEach { cell in
                 if canFight == true {
-                    if let needTuple = arrayIfCanFight.first(where: {$0.checker == checker.tag}) {
-                        if needTuple.cell == cell.tag, cell.frame.contains(location) {
-                            currentCell = cell
-                            beatenChecker = needTuple.checkerBeaten
+                    if checker.subviews.isEmpty {
+                        if let needTuple = arrayIfCanFight.first(where: {$0.checker == checker.tag}) {
+                            if needTuple.cell == cell.tag, cell.frame.contains(location) {
+                                currentCell = cell
+                                beatenChecker = needTuple.checkerBeaten
+                            }
+                        }
+                    } else {
+                        arrayIfCanFight.forEach { tuple in
+                            if checker.tag == tuple.checker, cell.tag == tuple.cell, cell.frame.contains(location) {
+                                currentCell = cell
+                                beatenChecker = tuple.checkerBeaten
+                            }
                         }
                     }
+                    
                 } else {
                     if cell.frame.contains(location) {
                         currentCell = cell
@@ -762,15 +932,38 @@ class GameViewController: UIViewController, ViewControllerDelegate {
             }
             checkerIsLady()
             
-            arrayIfCanFight.removeAll(where: {$0.checker != checker.tag })
-            arrayIfCanFight.removeAll(where: {$0.cell == currentCell?.tag })
-            if arrayIfCanFight.isEmpty {
-                canFight = false
-                smartBorder(for: checker)
+            if !cheker.subviews.isEmpty {
+                if canFight == true {
+                    
+                    canFight = false
+                    arrayCells.removeAll()
+                    arrayIfCanFight.removeAll()
+                    smartBorder(for: cheker)
+                    findFight()
+        
+                    if canFight == true {
+                        
+                        arrayIfCanFight.removeAll(where: {$0.checker != checker.tag })
+                        smartBorder(for: checker)
+                        if arrayIfCanFight.isEmpty {
+                            canFight = false
+                        }
+                    }
+                }
             } else {
-                smartBorder(for: checker)
-                canFight = true
+                arrayIfCanFight.removeAll(where: {$0.checker != checker.tag })
+                arrayIfCanFight.removeAll(where: {$0.cell == currentCell?.tag })
+                
+                if arrayIfCanFight.isEmpty {
+                    canFight = false
+                    smartBorder(for: checker)
+                } else {
+                    smartBorder(for: checker)
+                    canFight = true
+                }
             }
+            
+            
             //arrayCells.removeAll()
             if canFight == false {
                 currentDirection = currentDirection == .white ? .black : .white
@@ -780,16 +973,16 @@ class GameViewController: UIViewController, ViewControllerDelegate {
                 guard canFight == false else { return }
                 win()
             }
-            //currentDirection = currentDirection == .white ? .black : .white
-            //getPlayerNames()
-            
-            //findFight()
+        //currentDirection = currentDirection == .white ? .black : .white
+        //getPlayerNames()
+        
+        //findFight()
         default: break
         }
     }
     
-   @objc func panGestureRecognizer(_ sender: UIPanGestureRecognizer) {
-    guard let cheker = sender.view, (currentDirection == .white && cheker.tag >= 12) || (currentDirection == .black && cheker.tag < 12),
+    @objc func panGestureRecognizer(_ sender: UIPanGestureRecognizer) {
+        guard let cheker = sender.view, (currentDirection == .white && cheker.tag >= 12) || (currentDirection == .black && cheker.tag < 12),
               cheker.transform != .identity else { return }
         let translation = sender.translation(in: board)
         switch sender.state {
@@ -812,14 +1005,14 @@ class GameViewController: UIViewController, ViewControllerDelegate {
                                                 self.saveBackgroundGame()
                                                 self.saveTimerToUserDefaults()
                                                 self.saveCurrentDirection()
-//                                                CoreDataManager.shared.addNewResults(by: ResultsModel(data_m: self.dateLabel.text , playerWhite_m: self.playerWhite, playerBlack_m: self.playerBlack))
+                                                //                                                CoreDataManager.shared.addNewResults(by: ResultsModel(data_m: self.dateLabel.text , playerWhite_m: self.playerWhite, playerBlack_m: self.playerBlack))
                                                 self.navigationController?.popToRootViewController(animated: true)}),
-                                UIAlertAction(title: "No", style: .cancel, handler: { _ in
+                               UIAlertAction(title: "No", style: .cancel, handler: { _ in
                                                 let fileURL = self.documentDirectory.appendingPathComponent(KeysUserDefaults.saveSellAndChecker.rawValue)
-//                                                let fileURL1 = self.documentDirectory.appendingPathComponent(KeysUserDefaults.checkers.rawValue)
+                                                //                                                let fileURL1 = self.documentDirectory.appendingPathComponent(KeysUserDefaults.checkers.rawValue)
                                                 let fileURL2 = self.documentDirectory.appendingPathComponent(KeysUserDefaults.savePlayerNames.rawValue)
                                                 try? FileManager.default.removeItem(at: fileURL)
-//                                                try? FileManager.default.removeItem(at: fileURL1)
+                                                //                                                try? FileManager.default.removeItem(at: fileURL1)
                                                 try? FileManager.default.removeItem(at: fileURL2)
                                                 self.removeTimerFromUserDefaults()
                                                 self.saveBackgroundGame()
